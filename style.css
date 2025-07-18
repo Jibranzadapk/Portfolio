@@ -41,7 +41,7 @@ header{
 
 .logo{
   font-size: 3.2rem;
-  color: var(--bg-color);
+  color: var(--main-color);
   font-style: bold;
   font-weight: 700;
 }
