@@ -1,0 +1,83 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Quicksand;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+:root{
+  --bg-color:black;
+  --second-bg-color:#1f242d;
+  --main-color: #3CFF15 ;
+  --white-color:#fff;
+  --disabled-color:#fff3;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+color: var(--main-color);
+background: var(--bg-color);
+}
+
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  padding: 1.5rem 4%;
+  background: var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo{
+  font-size: 3.2rem;
+  color: var(--main-color);
+  font-style: bold;
+  font-weight: 700;
+}
+
+nav a{
+  font-size: 2rem;
+  color: var(--main-color);
+  font-weight: 700;
+  margin-left: 1.5rem;
+  transition: 0.3s;
+  border: 3px solid transparent;
+  border-radius: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+nav a:hover{
+  border: 3px solid var(--main-color);
+  border-radius: 30px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.home{
+   border: 3px solid var(--main-color);
+  border-radius: 30px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+
+
+
