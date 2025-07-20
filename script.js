@@ -1,11 +1,10 @@
  async function fetchGreeting() {
       try {
-        // Step 1: Get user's IP-based location
-        const res = await fetch('https://ipapi.co/json/');
+        const res = await fetch('https://ipinfo.io/json?token=f10f7ff0caaf17'); // Replace with your actual token
         const data = await res.json();
+
         const userTimeZone = data.timezone;
 
-        // Step 2: Get current time in user's time zone
         const currentTime = new Date().toLocaleTimeString("en-US", {
           hour: "2-digit",
           hour12: false,
@@ -14,7 +13,6 @@
 
         const hour = parseInt(currentTime.split(':')[0]);
 
-        // Step 3: Set greeting based on hour
         let greetingText = "Hello!";
         if (hour >= 5 && hour < 12) {
           greetingText = "Good Morning!";
@@ -28,8 +26,8 @@
 
         document.getElementById("greeting").textContent = greetingText;
       } catch (error) {
-        document.getElementById("greeting").textContent = "Welcome!";
         console.error("Error fetching user location/time:", error);
+        document.getElementById("greeting").textContent = "Welcome!";
       }
     }
 
