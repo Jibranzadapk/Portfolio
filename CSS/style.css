@@ -450,6 +450,16 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
     text-align: center;
   }
 
+  .home-detail h1{
+    /*font-size: 3rem;*/
+  }
+.home-detail h2{
+  font-size: 2.5rem;
+}
+
+.home-detail p{
+  font-size: 2rem;
+}
   #whoami-btn {
     display: block;
     cursor: pointer;
