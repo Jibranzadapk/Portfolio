@@ -212,3 +212,30 @@ document.addEventListener("DOMContentLoaded", () => {
       whoAmIButton.classList.add("visible");
     }, 12000); // Delay based on your text animations
   });
+
+
+
+
+
+
+
+
+
+
+
+// Toggle mobile menu
+document.addEventListener("DOMContentLoaded", () => {
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileNav = document.getElementById("mobileNav");
+
+  menuIcon.addEventListener("click", () => {
+    mobileNav.classList.toggle("active");
+  });
+
+  // Optional: close menu if any link clicked
+  mobileNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileNav.classList.remove("active");
+    });
+  });
+});

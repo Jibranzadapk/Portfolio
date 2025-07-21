@@ -345,3 +345,124 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   transform: translateY(0);
   pointer-events: auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================== Mobile Responsive Styles ===================== */
+@media (max-width: 768px) {
+
+  /* Show menu icon */
+  #menu-icon {
+    display: block;
+    color: var(--main-color);
+    cursor: pointer;
+    z-index: 101;
+  }
+
+  /* Hide original navbar on mobile */
+  header nav {
+    display: none;
+  }
+
+  /* Fullscreen menu overlay */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* dark blur background */
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.4s ease;
+  }
+
+  .mobile-nav.active {
+    right: 0;
+  }
+
+  .mobile-nav a {
+    font-size: 2.4rem;
+    color: var(--main-color);
+    margin: 1.5rem 0;
+    font-weight: 700;
+    transition: 0.3s;
+  }
+
+  .mobile-nav a:hover {
+    color: var(--white-color);
+  }
+
+  /* Home section layout - vertical stack */
+  .homesection {
+    flex-direction: column;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .home-img {
+    position: static;
+    width: 70%;
+    height: auto;
+    transform: none;
+    margin-bottom: 2rem;
+  }
+
+  .home-img .img-box {
+    width: 100%;
+    height: auto;
+  }
+
+  .home-detail {
+    width: 100%;
+    align-items: center;
+  }
+
+  .home-detail h1,
+  .home-detail h2,
+  .home-detail p {
+    text-align: center;
+  }
+
+  #whoami-btn {
+    display: block;
+    margin: 2rem auto 0 auto;
+  }
+
+/* Reverse order of image and text on mobile */
+@media (max-width: 768px) {
+  .homesection {
+    display: flex;
+    flex-direction: column-reverse; /* This flips the order */
+    gap: 3rem;
+    text-align: center;
+  }
+}
+
+
+  
+}
+
