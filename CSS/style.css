@@ -460,9 +460,14 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
     gap: 3rem;
     text-align: center;
   }
+  .homesection {
+  padding-bottom: 5rem; /* Reduce bottom spacing */
+  padding-top: 8rem;     /* Optionally reduce top as well */
+}
+
 }
 
 
-  
+
 }
 
