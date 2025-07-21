@@ -326,11 +326,14 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   mix-blend-mode: lighten;
 }
 
-
+.btn-sci a{
+  cursor: pointer;
+}
 
 /*=======================Who am i animation =============================*/
 #whoami-btn {
   opacity: 0;
+  cursor: pointer;
   transition: opacity 1s ease;
 }
 .fade-in-btn {
@@ -449,6 +452,7 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
 
   #whoami-btn {
     display: block;
+    cursor: pointer;
     margin: 2rem auto 0 auto;
   }
 
@@ -460,9 +464,10 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
     gap: 3rem;
     text-align: center;
   }
-  .homesection {
+  .homesection  {
+    margin-top: -10px;
   padding-bottom: 5rem; /* Reduce bottom spacing */
-  padding-top: 8rem;     /* Optionally reduce top as well */
+  padding-top: 5rem;     /* Optionally reduce top as well */
 }
 
 }
@@ -470,4 +475,70 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
 
 
 }
+/*====================== who am i as pointer for all desktop and mobile*/
+.fade-in-btn {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1s ease, transform 1s ease;
+  pointer-events: none; /* still here by default */
+  cursor: default;
+}
+
+.fade-in-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  cursor: pointer; /* cursor becomes pointer when visible */
+}
+
+
+/*=========== edited========*/
+.fade-in-btn {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  pointer-events: none;
+  cursor: default;
+}
+
+.fade-in-btn.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+
+
+/*============================= hiding scroll bar line ===================*/
+/* Hide scrollbar for all elements */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* Optional: remove scrollbar track background */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Optional: remove scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Hide scrollbar for Firefox */
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* Optional: just in case, remove from html tag too */
+html {
+  scrollbar-width: none;
+}
+
+
+
+
 
