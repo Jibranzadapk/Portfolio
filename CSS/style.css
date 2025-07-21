@@ -447,7 +447,6 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   }
 
   .home-detail h1,
-  .home-detail h2,
   .home-detail p {
     text-align: center;
   }
