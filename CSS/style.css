@@ -299,7 +299,7 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
 
 .home-img .img-box .img-item {
   width: 70%;
-  height: 95%;
+  height: 90%;
   background: var(--bg-color);
   border: 0.01rem solid var(--bg-color);
   display: flex;
@@ -429,7 +429,7 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
 
   .home-img {
     position: static;
-    width: 70%;
+    width: 90%;
     height: auto;
     transform: none;
     margin-bottom: 5rem;
