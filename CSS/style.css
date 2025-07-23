@@ -602,14 +602,14 @@ html {
 
   .home-img {
     order: -1;
-    margin-top: 5rem;
+    margin-top: 8rem;
     padding-bottom: 0;
     margin-bottom: 0; /* Optional: further reduce spacing */
   }
 
   .home-detail {
     order: 1;
-    padding-top: -20px;
+    padding-top: -30px;
     margin-top: 0; /* Reset any top margin that might be adding space */
   }
 }
