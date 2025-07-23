@@ -592,24 +592,21 @@ html {
 @media (max-width: 768px) {
   .homesection {
     display: flex;
-    flex-direction: column; /* NOT column-reverse */
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 0rem;
+    margin-top: 7rem;
+    gap: 1rem; /* Reduces space between image & text */
   }
 
   .home-img {
-    order: -1; /* Force image to stay at top */
-    margin-top: 7rem;
-    padding-bottom: 0;
-    margin-bottom: 0rem;
-    padding-bottom: 0;
+    order: -1;
+    margin-bottom: 0.5rem; /* Optional: further reduce spacing */
   }
 
   .home-detail {
     order: 1;
-    margin-top: 0;
-    padding-top: 0;
-    margin-bottom: 3rem;
+    margin-top: 0; /* Reset any top margin that might be adding space */
   }
 }
+
