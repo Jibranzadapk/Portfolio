@@ -616,7 +616,7 @@ html {
 
 
 
-
+/*===================== Scaning line animation for image on desktop =============*/
 
 
 
@@ -631,7 +631,7 @@ html {
   height: auto;
   display: block;
   clip-path: inset(100% 0 0 0);
-  animation: revealImage 2s ease-in-out forwards;
+  animation: revealImage 1s ease-in-out forwards;
 }
 
 /* Scanning line effect on top of image */
@@ -675,4 +675,76 @@ html {
     top: 100%;
     opacity: 0;
   }
+}
+
+
+
+
+/*=================Scaning line animation for image in mobile mode ==============*/
+
+
+@media (max-width: 768px) {
+
+
+.img-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  clip-path: inset(100% 0 0 0);
+  animation: revealImage 1s ease-in-out forwards;
+}
+
+/* Scanning line effect on top of image */
+.img-item::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--main-color);
+  z-index: 5;
+  animation: scanLine 5.6s ease-in-out forwards;
+}
+
+/* Reveal animation */
+@keyframes revealImage {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Scanning line animation */
+@keyframes scanLine {
+
+  0% {
+    top: 0%;
+    opacity: 1;
+  }
+
+  /*60% {
+    top: 60%;
+    opacity: 1;
+  }*/
+  99% {
+    top: 99%;
+    /*top: 46%;*/
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+
 }
