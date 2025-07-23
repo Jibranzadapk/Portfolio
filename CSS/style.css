@@ -455,13 +455,14 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   .home-img {
     position: static;
     width: 90%;
-    height: auto;
+    height: 60%;
     transform: none;
     margin-bottom: 5rem;
   }
 
   .home-img .img-box {
     width: 100%;
+    padding: 0;
     height: auto;
   }
 
@@ -580,3 +581,30 @@ html {
 
 
 
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .homesection {
+    display: flex;
+    flex-direction: column; /* NOT column-reverse */
+    align-items: center;
+    text-align: center;
+    margin-top: 8rem;
+  }
+
+  .home-img {
+    order: -1; /* Force image to stay at top */
+    margin-top: 2rem;
+    margin-bottom: 0rem;
+  }
+
+  .home-detail {
+    order: 1;
+  }
+}

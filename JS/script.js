@@ -244,3 +244,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  const homeImg = document.querySelector(".home-img");
+  const homeDetail = document.querySelector(".home-detail");
+
+  homeImg.style.opacity = 0;
+  homeDetail.style.opacity = 0;
+  homeImg.style.transition = "opacity 1s ease";
+  homeDetail.style.transition = "opacity 1s ease";
+
+  setTimeout(() => {
+    homeImg.style.opacity = 1;
+  }, 500); // Adjust delay as needed
+
+  setTimeout(() => {
+    homeDetail.style.opacity = 1;
+  }, 2000);
+});
+
+
+
+
+
+const isMobile = window.innerWidth <= 768;
+
+if (!isMobile) {
+  homeImg.style.display = "none";
+
+  setTimeout(() => {
+    homeImg.style.display = "block";
+  }, 500);
+}
