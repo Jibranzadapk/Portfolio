@@ -594,21 +594,22 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 95%;
     text-align: center;
-    margin-top: 7rem;
+    margin-top: 2rem;
     gap: 1rem; /* Reduces space between image & text */
   }
 
   .home-img {
     order: -1;
-    margin-top: 3rem;
+    margin-top: 5rem;
     padding-bottom: 0;
     margin-bottom: 0; /* Optional: further reduce spacing */
   }
 
   .home-detail {
     order: 1;
-    padding-top: 0;
+    padding-top: -20px;
     margin-top: 0; /* Reset any top margin that might be adding space */
   }
 }
