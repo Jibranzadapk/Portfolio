@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       wrapper.classList.add("reveal-image");
     }, 300); // slight internal delay after replacement
-  }, 0.5000); // wait 4 seconds before running image animation
+  }, 0.500); // wait 4 seconds before running image animation
 });
 
 
