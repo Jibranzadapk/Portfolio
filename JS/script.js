@@ -275,3 +275,9 @@ if (!isMobile) {
     homeImg.style.display = "block";
   }, 500);
 }
+
+
+
+
+
+
