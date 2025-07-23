@@ -601,11 +601,14 @@ html {
 
   .home-img {
     order: -1;
-    margin-bottom: 0.5rem; /* Optional: further reduce spacing */
+    margin-top: 3rem;
+    padding-bottom: 0;
+    margin-bottom: 0; /* Optional: further reduce spacing */
   }
 
   .home-detail {
     order: 1;
+    padding-top: 0;
     margin-top: 0; /* Reset any top margin that might be adding space */
   }
 }
