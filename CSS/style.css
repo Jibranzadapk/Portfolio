@@ -595,16 +595,21 @@ html {
     flex-direction: column; /* NOT column-reverse */
     align-items: center;
     text-align: center;
-    margin-top: 8rem;
+    margin-top: 0rem;
   }
 
   .home-img {
     order: -1; /* Force image to stay at top */
-    margin-top: 2rem;
+    margin-top: 7rem;
+    padding-bottom: 0;
     margin-bottom: 0rem;
+    padding-bottom: 0;
   }
 
   .home-detail {
     order: 1;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 3rem;
   }
 }
