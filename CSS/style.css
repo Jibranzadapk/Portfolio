@@ -96,6 +96,7 @@ section {
   display: flex;
   align-items: center;
   gap: 5rem;
+  height: 98%;
 }
 .home-detail{
   width: 65%;
