@@ -80,4 +80,14 @@ function typeText(elementId, text, callback) {
 
 
 
-// ========================= again ==============================//
+// ========================= buttons on hold for 10s ==============================//
+ const div = document.getElementById("buttonhide");
+
+    // Hide div initially
+    div.style.display = "none";
+
+    // Show div after 13 seconds with fade-in
+    setTimeout(function() {
+        div.style.display = "block";
+        div.style.animation = "fadeIn 1s ease-in forwards"; // 1s fade
+    }, 12000); // 13 seconds
