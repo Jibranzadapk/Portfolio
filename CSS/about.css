@@ -249,6 +249,7 @@ html {
   flex-direction: column;
   padding: 2rem;
   opacity: 0;
+  padding-left: 50px;
   align-items: left;
   transition: opacity 0.5s ease-in-out;
 }
@@ -476,7 +477,9 @@ html {
   background-color: var(--main-color);
   color: var(--bg-color);
 }
-
+.left{
+  padding-left: 20px;
+}
 }
 
 
@@ -490,3 +493,221 @@ html {
         from { opacity: 0; }
         to { opacity: 1; }
     }
+
+
+
+
+/*======================== video section =====================*/
+
+.about-section {
+        display: flex;
+        height: 80vh;
+        width: 100%;
+    }
+    .video-side {
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+    }
+    .video-side video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 70%;
+        height: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        filter: brightness(0.7);
+    }
+    .terminal-side {
+        flex: 1;
+        background: #000;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .terminal {
+        background: #000;
+        border: 2px solid var(--main-color);
+        width: 90%;
+        height: 300px;
+        font-size: 2rem;
+        width: 500px;
+        padding: 15px;
+        font-weight: 500;
+        box-shadow: 0 0 15px #00ff00;
+    }
+    .line {
+        opacity: 0;
+        animation: fadeIn 0.5s forwards;
+    }
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+    .typing {
+        display: inline-block;
+        border-right: 10px solid #00ff00;
+        white-space: nowrap;
+        margin-left: 2px;
+        overflow: hidden;
+    }
+.aboutheading{
+  padding-top: 200px;
+  align-items: center;
+  padding-bottom: 0px;
+  justify-content: center;
+  text-align: center;
+  font-size: 500%;
+  font-weight: bold;
+}
+
+
+.line {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    padding-left: 25px; /* indent from left */
+}
+
+.gap-line {
+    height: 0.4em; /* half of normal line height */
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* ===================== Mobile Responsive Styles ===================== */
+@media (max-width: 768px) {
+
+  /* Keep header fixed in mobile too */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--bg-color);
+    z-index: 1000;
+  }
+
+  /* Add top padding to body so content doesn't hide under fixed header */
+  body {
+    padding-top: 0px; /* matches header height */
+  }
+
+  /* Show menu icon */
+  #menu-icon {
+    display: block;
+    color: var(--main-color);
+    cursor: pointer;
+    z-index: 1010;
+  }
+
+  /* Hide original navbar on mobile */
+  header nav {
+    display: none;
+  }
+
+  /* Fullscreen menu overlay */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.4s ease;
+  }
+
+  .mobile-nav.active {
+    right: 0;
+  }
+
+  .mobile-nav .mobone{
+    font-size: 2.4rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    margin: 1.5rem 0;
+    font-weight: 700;
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+
+  .mobile-nav a {
+    font-size: 2.4rem;
+    color: var(--main-color);
+    margin: 1.5rem 0;
+    font-weight: 700;
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+
+  .mobile-nav a:hover, .mobone {
+    background: var(--main-color);
+    color: var(--bg-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 1rem var(--main-color);
+  }  
+}
+/* ===================== Responsive Changes for About Section ===================== */
+@media (max-width: 768px) {
+
+  /* Stack video and terminal vertically */
+  .about-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .video-side, .terminal-side {
+    flex: none;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Make video fit nicely */
+  .video-side video {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    filter: brightness(0.7);
+  }
+
+  /* Terminal full width with spacing */
+  .terminal-side {
+    padding: 15px;
+    height: 300px;
+    justify-content: center;
+  }
+
+  .terminal {
+    height: 300px;
+    width: 90%;
+    width: 500px;
+    height: auto;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  .aboutheading{
+  padding-top: 200px;
+  align-items: center;
+  padding-bottom: 100px;
+  justify-content: center;
+  text-align: center;
+  font-size: 500%;
+  font-weight: bold;
+}
+}
