@@ -817,17 +817,19 @@ html {
   /* Responsive: switch to stacked layout */
   @media (max-width: 768px) {
     .education-section{
-      padding: 10px;
+      padding: 5px;
       /*border: 2px solid var(--main-color);*/
     }
       .edu-container {
-      gap: 8px;
+      gap: 0px;
     }
     .edu-image {
       flex: 0 0 90px;
     }
     .edu-image img {
       width: 150px;
+      padding-right: 0;
+      margin-right: 0;
       height: 150px;
     }
 
