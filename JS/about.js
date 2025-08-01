@@ -118,3 +118,22 @@ setTimeout(() => {
 
 
 
+ // =================== Education section JS =============================//
+  window.addEventListener("load", () => {
+    document.querySelector(".edu-details").style.opacity = "1";
+    document.querySelector(".edu-details").style.transform = "translateY(0)";
+  });
+
+
+
+
+  // ========================= Mouse wheel scroll animation ================//
+  // Show scroll indicator after 13 seconds
+  setTimeout(() => {
+    document.getElementById("scrollIndicator").style.display = "flex";
+  }, 13000); // 13000ms = 13 seconds
+
+  // Hide on mobile/responsive screens
+  if (window.innerWidth <= 768) { 
+    document.getElementById("scrollIndicator").remove();
+  }

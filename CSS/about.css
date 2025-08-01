@@ -558,7 +558,7 @@ html {
   padding-bottom: 0px;
   justify-content: center;
   text-align: center;
-  font-size:400%;
+  font-size:4rem;
   font-weight: bold;
 }
 
@@ -661,6 +661,11 @@ html {
 /* ===================== Responsive Changes for About Section ===================== */
 @media (max-width: 768px) {
 
+.scroll-indicator #scrollIndicator{
+  display: none;
+}
+
+
   /* Stack video and terminal vertically */
   .about-section {
     flex-direction: column;
@@ -704,10 +709,209 @@ html {
   .aboutheading{
   padding-top: 200px;
   align-items: center;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   justify-content: center;
   text-align: center;
-  font-size: 300%;
+  font-size: 4rem;
   font-weight: bold;
 }
 }
+
+
+
+
+  #eduheading{
+    color: var(--main-color);
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: -50px;
+  }
+
+
+
+
+
+  /* Section */
+  .education-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    padding: 20px;
+  }
+
+  .edu-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+    align-items: center;
+  }
+
+  /* Icon/Image */
+  .edu-image {
+    flex: 0 0 180px;
+    text-align: center;
+  }
+
+  .edu-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px var(--main-green));
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* Details */
+  .edu-details {
+    flex: 1;
+    padding: 10px;
+    border-left: 2px solid var(--main-color);
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    height: 25vh;
+    padding-top: 0;
+    transform: translateY(20px);
+  }
+
+  @keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .edu-details h2 {
+    font-size: 3rem;
+    padding-top: 0;
+    margin-top: 0;
+    /*text-shadow: 0 0 5px var(--disabled-color);*/
+  }
+
+  .edu-details h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    font-style: bold;
+    /*margin: 4px 0;*/
+    color: var(--main-color);
+  }
+
+  .edu-details p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: 10px;
+    color: var(--main-color);
+  }
+
+  .status {
+    margin-top: 12px;
+    font-style: italic;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--main-color);
+  }
+
+  /* Responsive: switch to stacked layout */
+  @media (max-width: 768px) {
+    .education-section{
+      padding: 10px;
+      /*border: 2px solid var(--main-color);*/
+    }
+      .edu-container {
+      gap: 8px;
+    }
+    .edu-image {
+      flex: 0 0 90px;
+    }
+    .edu-image img {
+      width: 150px;
+      height: 150px;
+    }
+
+    .edu-details h2 {
+      font-size: 2rem;
+    }
+    .edu-details h3 {
+      padding-top: 10px;
+      font-size: 1.5rem;
+    }
+    .edu-details{
+      height: 22vh;
+    }
+    .edu-details p {
+      font-size: 0.75rem;
+      display: none;
+    }
+      #eduheading{
+    color: var(--main-color);
+    font-size: 4rem;
+    text-align: center;
+    /*margin-bottom: -50px;*/
+  }
+.status {
+    margin-top: 12px;
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--main-color);
+  }
+  }
+
+
+
+/*=================================== Scroll ================================*/
+   .scroll-indicator {
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+  }
+
+  /* Mouse shape */
+  .scroll-indicator .mouse {
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--main-color);
+    border-radius: 15px;
+    position: relative;
+  }
+
+  /* Wheel inside mouse */
+  .scroll-indicator .wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--main-color);
+    border-radius: 2px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: wheelMove 1.2s infinite ease-in-out;
+  }
+
+  @keyframes wheelMove {
+    0% { top: 10px; opacity: 1; }
+    50% { top: 20px; opacity: 0.5; }
+    100% { top: 10px; opacity: 1; }
+  }
+
+  /* Text under mouse */
+  .scroll-indicator .scroll-text {
+    font-size: 2rem;
+    color: var(--main-color);
+    /*text-shadow: 0 0 5px var(--main-color);*/
+    animation: textBlink 1.2s infinite;
+  }
+
+  @keyframes textBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
