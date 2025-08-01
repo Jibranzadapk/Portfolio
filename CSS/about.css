@@ -553,7 +553,7 @@ html {
         overflow: hidden;
     }
 .aboutheading{
-  padding-top: 200px;
+  /*padding-top: 200px;*/
   align-items: center;
   padding-bottom: 0px;
   justify-content: center;
@@ -707,7 +707,7 @@ html {
     font-size: 1.5rem;
   }
   .aboutheading{
-  padding-top: 200px;
+  padding-top: 100px;
   align-items: center;
   padding-bottom: 50px;
   justify-content: center;
@@ -917,3 +917,22 @@ html {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.6; }
   }
+
+
+  @media (max-width: 768px) {
+  #scrollIndicator {
+    display: none !important;
+  }
+}
+
+
+
+
+/*============================== 200px margin top for credentials ===========*/
+
+/* Only for small screens */
+@media (max-width: 786px) {
+    .aboutheading {
+        transition: margin-top 0.8s ease; /* smooth animation */
+    }
+}

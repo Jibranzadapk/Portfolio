@@ -137,3 +137,16 @@ setTimeout(() => {
   if (window.innerWidth <= 768) { 
     document.getElementById("scrollIndicator").remove();
   }
+
+
+  // ========================== Hide Credentials for 10 sec ==================//
+  document.addEventListener("DOMContentLoaded", function() {
+    const heading = document.querySelector(".aboutheading");
+
+    if (window.innerWidth < 786) {
+        heading.style.marginTop = "200px"; // start with 200px
+        setTimeout(() => {
+            heading.style.marginTop = ""; // revert to normal (CSS default)
+        }, 10000); // after 5 seconds
+    }
+});
