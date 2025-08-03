@@ -10,10 +10,10 @@
 
 :root{
   --bg-color:black;
-  --second-bg-color:#1f242d;
+  /*--second-bg-color:#1f242d;*/
   --main-color: #3CFF15 ;
-  --white-color:#fff;
-  --disabled-color:#fff3;
+/*  --white-color:#fff;
+  --disabled-color:#fff3;*/
 }
 
 html {
@@ -1219,6 +1219,7 @@ html {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     gap: 20px;
+    width: 100%;
     justify-items: center;
     margin-top: 15px;
   }
@@ -1255,4 +1256,286 @@ html {
     font-weight: 700;
     color: var(--main-color);
   }
+}
+
+
+
+/*================================ Projects section =================================*/
+
+.hacker-section {
+    background-color: var(--bg-color);
+    color: var(--main-color);
+    /*font-family: monospace;*/
+    padding: 40px 0;
+    text-align: center;
+}
+
+.hacker-section h1,
+.hacker-section h2,
+.hacker-section p {
+    color: var(--main-color);
+    margin: 0;
+}
+
+.hacker-section .projects-heading {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 30px; /* space between heading and first row */
+    /*border-bottom: 2px solid var(--main-color);*/
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.hacker-section .projects-container {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.hacker-section .project-card {
+    background-color: var(--bg-color);
+    border: 2px solid var(--main-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 8px var(--main-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hacker-section .project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.hacker-section .project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    /*filter: grayscale(100%) brightness(0.8);*/
+    transition: filter 0.3s;
+}
+
+.hacker-section .project-card:hover img {
+    /*filter: grayscale(0%) brightness(1);*/
+}
+
+.hacker-section .card-content {
+    padding: 15px;
+}
+
+.hacker-section .card-content h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.hacker-section .card-content p {
+    font-size: 1.5rem;
+    color: var(--main-color);
+    /*opacity: 0.9;*/
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.hacker-section .btn {
+    background-color: var(--bg-color);
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    padding: 8px 15px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 20px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.hacker-section .btn:hover {
+    background-color: var(--main-color);
+    color: var(--bg-color);
+}
+
+.hacker-section .all-projects {
+    margin-top: 30px;
+}
+
+/* ================== Responsive ================== */
+@media (max-width: 768px) {
+
+.hacker-section {
+    background-color: var(--bg-color);
+    color: var(--main-color);
+    /*font-family: monospace;*/
+    padding: 40px 0;
+    text-align: center;
+}
+
+.hacker-section h1,
+.hacker-section h2,
+.hacker-section p {
+    color: var(--main-color);
+    margin: 0;
+}
+
+.hacker-section .projects-heading {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 30px; /* space between heading and first row */
+    /*border-bottom: 2px solid var(--main-color);*/
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.hacker-section .projects-container {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.hacker-section .project-card {
+    background-color: var(--bg-color);
+    border: 3px solid var(--main-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 8px var(--main-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hacker-section .project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.hacker-section .project-card img {
+    width: 100%;
+    height: 180px;
+    padding: 5px;
+    object-fit: cover;
+    /*filter: grayscale(100%) brightness(0.8);*/
+    transition: filter 0.3s;
+}
+
+.hacker-section .project-card:hover img {
+    /*filter: grayscale(0%) brightness(1);*/
+}
+
+.hacker-section .card-content {
+    padding: 15px;
+}
+
+.hacker-section .card-content h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.hacker-section .card-content p {
+    font-size: 1.5rem;
+    color: var(--main-color);
+    /*opacity: 0.9;*/
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.hacker-section .btn {
+    background-color: var(--bg-color);
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    padding: 8px 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 20px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.hacker-section .btn:hover {
+    background-color: var(--main-color);
+    color: var(--bg-color);
+}
+
+.hacker-section .all-projects {
+    margin-top: 30px;
+}
+
+    .hacker-section .projects-container {
+        width: 90%;
+        grid-template-columns: 1fr;
+    }
+
+    .hacker-section .project-card {
+        border-width: 1.5px;
+    }
+
+    .hacker-section .btn {
+        padding: 6px 12px;
+        font-size: 1.2rem;
+        font-weight: 800;
+    }
+
+    .hacker-section .projects-heading {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+
+
+}
+
+
+
+
+
+/*================================= Footer ============================*/
+/* Footer Container */
+.footer-bar {
+    width: 80%;
+    margin: 30px auto;
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+/* Text Styling */
+.footer-bar h1 {
+    color: var(--main-color);
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+   .footer-bar .rightfooter{
+    font-size: 1.5rem;
+   }
+
+
+/* Verified Badge */
+.footer-bar .verified-icon {
+    width: 17px;
+    height: 17px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-bar {
+        width: 90%;
+        /*flex-direction: column;*/
+        text-align: center;
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+    .footer-bar h1{
+      font-size: 1.5rem;
+    }
+   .footer-bar .rightfooter{
+      font-size: 1.3rem;
+    }
 }
