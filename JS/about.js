@@ -150,3 +150,45 @@ setTimeout(() => {
         }, 10000); // after 5 seconds
     }
 });
+
+
+  // ========================== Skills and Technologies animation ==================//
+     // Smooth scrolling to sections
+    document.querySelectorAll('section').forEach(section => {
+      section.addEventListener('mouseenter', function() {
+        section.style.animation = 'scrollEffect 1s ease forwards';
+      });
+    });
+
+
+
+
+
+
+
+    // ======================= Mouse wheel under 120vh and hover scroll ================//
+   (function() {
+  const indicator = document.getElementById("scrollIndicator");
+  let showTimeout;
+
+  function toggleIndicator() {
+    if (window.scrollY === 0) {
+      // Only start timer if not already started
+      if (!showTimeout) {
+        showTimeout = setTimeout(() => {
+          indicator.style.display = "flex";
+        }, 13000); // 10 seconds delay
+      }
+    } else {
+      // Hide immediately when user scrolls
+      clearTimeout(showTimeout);
+      showTimeout = null;
+      indicator.style.display = "none";
+    }
+  }
+
+  // Run on load
+  window.addEventListener("load", toggleIndicator);
+  // Run when scrolling
+  window.addEventListener("scroll", toggleIndicator);
+})();
