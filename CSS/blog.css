@@ -202,3 +202,86 @@ body {
 html {
   scrollbar-width: none;
 }
+
+
+/* ===================== Mobile Responsive Styles ===================== */
+@media (max-width: 768px) {
+
+  /* Keep header fixed in mobile too */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--bg-color);
+    z-index: 1000;
+  }
+
+  /* Add top padding to body so content doesn't hide under fixed header */
+  body {
+    padding-top: 0px; /* matches header height */
+  }
+
+  /* Show menu icon */
+  #menu-icon {
+    display: block;
+    color: var(--main-color);
+    cursor: pointer;
+    z-index: 1010;
+  }
+
+  /* Hide original navbar on mobile */
+  header nav {
+    display: none;
+  }
+
+  /* Fullscreen menu overlay */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.4s ease;
+  }
+
+  .mobile-nav.active {
+    right: 0;
+  }
+
+  .mobile-nav .mobone{
+    font-size: 2.4rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    margin: 1.5rem 0;
+    font-weight: 700;
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+
+  .mobile-nav a {
+    font-size: 2.4rem;
+    color: var(--main-color);
+    margin: 1.5rem 0;
+    font-weight: 700;
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+
+  .mobile-nav a:hover, .mobone {
+    background: var(--main-color);
+    color: var(--bg-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 1rem var(--main-color);
+  }  
+}

@@ -33,3 +33,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+
+
+// ===================================  Project Cards section =============================//
+// Fade-in animation on scroll
+const cards = document.querySelectorAll('.project-card');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.2 });
+
+cards.forEach(card => {
+    observer.observe(card);
+});
