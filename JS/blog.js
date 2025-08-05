@@ -33,3 +33,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+
+// ================================ Blogs ==============================//
+function filterBlogs(category) {
+    let cards = document.querySelectorAll('.blog-card');
+    let buttons = document.querySelectorAll('.sort-buttons button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
