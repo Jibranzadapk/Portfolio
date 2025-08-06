@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --green: #3CFF15;
+    --black: black;
+    --gray: #3CFF15;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand';
+}
+body {
+    background: var(--black);
+    color: var(--green);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Background canvas */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Main container */
+.container {
+    text-align: center;
+    z-index: 1;
+}
+
+/* Rotating hologram icon */
+.icon {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 20px;
+    animation: rotate3D 6s linear infinite;
+    transform-style: preserve-3d;
+    filter: drop-shadow(0 0 6px var(--green));
+}
+@keyframes rotate3D {
+    0% { transform: rotateY(0deg) rotateX(0deg); }
+    50% { transform: rotateY(180deg) rotateX(10deg); }
+    100% { transform: rotateY(360deg) rotateX(0deg); }
+}
+
+/* 404 glitch effect */
+h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    position: relative;
+    /*text-shadow: 0 0 5px var(--green), 0 0 10px var(--green);*/
+    animation: glitch 2s infinite;
+}
+@keyframes glitch {
+    0%, 100% { transform: none; }
+    20% { transform: skew(-2deg); }
+    40% { transform: skew(2deg); }
+    60% { transform: translateX(2px); }
+    80% { transform: translateX(-2px); }
+}
+
+/* Subtext */
+p {
+    color: var(--gray);
+    font-size: 1rem;
+    margin-bottom: 25px;
+    max-width: 420px;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Button */
+a {
+    display: inline-block;
+    padding: 5px 20px;
+    border: 3px solid var(--green);
+    color: var(--green);
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 35px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+a:hover {
+    background: var(--green);
+    color: var(--black);
+    box-shadow: 0 0 15px var(--green);
+}
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Cyber network background -->
+<canvas id="bg"></canvas>
+
+<div class="container">
+    <!-- Hologram icon -->
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--green)" stroke-width="2" viewBox="0 0 64 64">
+        <path d="M32 2 L2 12 v18c0 20 13 31 30 32 17-1 30-12 30-32V12L32 2z"/>
+        <path d="M22 26h20M22 34h20"/>
+    </svg>
+
+    <!-- Heading -->
+    <h1>404</h1>
+    <p>The page you are looking for doesn’t exist or may have been moved.</p>
+    <a href="index.html">Return Home</a>
+</div>
+
+
+
+
