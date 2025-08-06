@@ -147,7 +147,7 @@ setTimeout(() => {
         heading.style.marginTop = "200px"; // start with 200px
         setTimeout(() => {
             heading.style.marginTop = ""; // revert to normal (CSS default)
-        }, 10000); // after 5 seconds
+        }, 12000); // after 5 seconds
     }
 });
 

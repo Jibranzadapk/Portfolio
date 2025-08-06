@@ -442,6 +442,8 @@ html {
     width: 100%;
     /*margin-left: 0;*/
     /*padding-left: 0;*/
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
 
@@ -1539,5 +1541,8 @@ html {
     }
    .footer-bar .rightfooter{
       font-size: 1.3rem;
+    }
+    #second{
+      display: none;
     }
 }
