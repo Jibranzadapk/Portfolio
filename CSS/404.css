@@ -94,29 +94,48 @@ a:hover {
     color: var(--black);
     box-shadow: 0 0 15px var(--green);
 }
-
-
-
-</style>
-</head>
-<body>
-
-<!-- Cyber network background -->
-<canvas id="bg"></canvas>
-
-<div class="container">
-    <!-- Hologram icon -->
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--green)" stroke-width="2" viewBox="0 0 64 64">
-        <path d="M32 2 L2 12 v18c0 20 13 31 30 32 17-1 30-12 30-32V12L32 2z"/>
-        <path d="M22 26h20M22 34h20"/>
-    </svg>
-
-    <!-- Heading -->
-    <h1>404</h1>
-    <p>The page you are looking for doesn’t exist or may have been moved.</p>
-    <a href="index.html">Return Home</a>
-</div>
+@media (max-width: 768px) {
+p {
+    color: var(--gray);
+    font-size: 1rem;
+    margin-bottom: 25px;
+    max-width: 420px;
+    font-weight: 600;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+}
+}
 
 
 
 
+
+/*============================= hiding scroll bar line ===================*/
+/* Hide scrollbar for all elements */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* Optional: remove scrollbar track background */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Optional: remove scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Hide scrollbar for Firefox */
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* Optional: just in case, remove from html tag too */
+html {
+  scrollbar-width: none;
+}
