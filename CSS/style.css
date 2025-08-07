@@ -973,7 +973,7 @@ body::before {
   width: 100vw;
   height: 100vh;
   z-index: 1;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(3px); /* for Safari */
   /*background-color: rgba(0, 0, 0, 0.5); /* optional: keeps black tint */*/
   pointer-events: none; /* so it doesn't interfere with clicks */
