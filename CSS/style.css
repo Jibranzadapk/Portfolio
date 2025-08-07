@@ -978,5 +978,10 @@ body::before {
   /*background-color: rgba(0, 0, 0, 0.5); /* optional: keeps black tint */*/
   pointer-events: none; /* so it doesn't interfere with clicks */
 }
-
+    .canvas-container {
+      display: none;
+}
+canvas{
+  display: none;
+}
 }
