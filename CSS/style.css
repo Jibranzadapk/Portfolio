@@ -117,7 +117,7 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   font-size: 2rem;
   /*margin: 1rem, 0, 5.5rem;*/
   margin-top: 1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 
@@ -304,7 +304,7 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   width: 70%;
   height: 90%;
   background: transparent;
-  backdrop-filter: blur(3px);
+  /*backdrop-filter: blur(3px);*/
   border: 0.01rem solid var(--bg-color);
   display: flex;
   justify-content: center;
@@ -492,6 +492,7 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
 
 .home-detail p{
   font-size: 1.7rem;
+  /*font-weight: 600;*/
 }
   #whoami-btn {
     display: block;
@@ -908,9 +909,23 @@ html {
       height: 100%;
       background-color: #000;
       overflow: hidden;
+      /*backdrop-filter: blur(10px);*/
       position: relative;
       margin: 0;
     }
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); /* for Safari */
+  /*background-color: rgba(0, 0, 0, 0.5); /* optional: keeps black tint */*/
+  pointer-events: none; /* so it doesn't interfere with clicks */
+}
 
     .canvas-container {
       position: absolute;
@@ -927,7 +942,9 @@ html {
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.7; /* Dimmed opacity */
+      background-color: var(--bg-color);
+        backdrop-filter: blur(10px);
+      opacity: 1; /* Dimmed opacity */
     }
 
     /* Dot customization */
@@ -947,3 +964,19 @@ html {
       /*background-color: rgba(0, 255, 0, 1); /* Line color with higher opacity */*/
       opacity: 1; /* Brighter line opacity */
     }
+@media (max-width: 768px) {
+  body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(3px); /* for Safari */
+  /*background-color: rgba(0, 0, 0, 0.5); /* optional: keeps black tint */*/
+  pointer-events: none; /* so it doesn't interfere with clicks */
+}
+
+}
