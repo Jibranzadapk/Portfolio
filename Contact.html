@@ -48,13 +48,18 @@
 <section class="contact-section" id="contact">
     <h2 data-aos="fade-up">Get in Touch</h2>
 
-    <form data-aos="fade-up" data-aos-delay="100">
-      <input type="text" name="name" autocomplete="off" placeholder="Your Name" required />
-      <input type="email" name="email" autocomplete="off" placeholder="Your Email" required />
-      <input type="tel" name="phone" autocomplete="off" placeholder="Phone Number" />
-      <textarea name="message" rows="5"  autocomplete="off" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <form id="contact-form" action="https://formspree.io/f/mzzvkwok" method="POST" data-aos="fade-up" data-aos-delay="100">
+  <input type="text" name="Name" autocomplete="off" placeholder="Your Name" required />
+  <input type="email" name="Email" autocomplete="off" placeholder="Your Email" required />
+  <input type="tel" name="Phone Number" autocomplete="off" placeholder="Phone Number" />
+  <textarea name="Message" rows="5" autocomplete="off" placeholder="Your Message" required></textarea>
+  
+  <!-- Hidden field for subject -->
+  <input type="hidden" name="_subject" value="Message from Jibranzada.com">
+
+  <button type="submit">Send Message</button>
+</form>
+
 
     <div class="social-section" data-aos="fade-up" data-aos-delay="200">
       <h3>Let's Connect</h3>

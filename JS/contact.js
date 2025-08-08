@@ -41,3 +41,32 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: 1000,
       once: true
     });
+
+
+
+
+ // ============================= Formspree js from chatgpt================//
+ // Handle Formspree form submit without page reload
+document.getElementById("contact-form").addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      alert("✅ Message sent successfully!");
+      form.reset();
+    } else {
+      alert("❌ Oops! Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    alert("❌ Network error. Please check your connection.");
+  }
+});
