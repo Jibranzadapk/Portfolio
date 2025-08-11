@@ -131,7 +131,7 @@ setTimeout(() => {
   // Show scroll indicator after 13 seconds
   setTimeout(() => {
     document.getElementById("scrollIndicator").style.display = "flex";
-  }, 13000); // 13000ms = 13 seconds
+  }, 16000); // 16000ms = 16 seconds because the user will read the hero section then scroll 
 
   // Hide on mobile/responsive screens
   if (window.innerWidth <= 768) { 
