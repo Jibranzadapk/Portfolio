@@ -1,346 +1,249 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatibe" content="IE-edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-<link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
-<link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
-<title>Admin</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<style>
-*{
-  margin: 0;
-  padding: 0;
-  font-family: 'Quicksand'
-  box-sizing: border-box;
-  text-decoration: none;
-  border: none;
-  outline: none;
-}
-
-:root{
-  --bg-color:black;
-  --second-bg-color:#1f242d;
-  --main-color: #3CFF15;
-  --white-color:#fff;
-  --disabled-color:#fff3;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  color: var(--main-color);
-  background: var(--bg-color);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hidden { display: none !important; }
-
-/* Login Section */
-section {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#login-section form {
-  background: var(--bg-color);
-  padding: 3rem;
-  border-radius: 1rem;
-  /*box-shadow: 0 0 2rem var(--main-color);*/
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  height: 300px;
-  border: 3px solid var(--main-color);
-  min-width: 40rem;
-}
-
-#login-section h2 {
-  text-align: center;
-  font-size: 4rem;
-}
-
-input {
-  padding: 1rem;
-  font-size: 2.5rem;
-  /*padding-left: 10px;*/
-  border-radius: 1rem;
-  caret-color: var(--main-color);
-  background: var(--bg-color);
-  color: var(--main-color);
-  font-weight: 600;
-  text-align: center; 
-  border: 2px solid var(--main-color);
-}
-
-button {
-  padding: 1rem;
-  font-size: 2rem;
-  border-radius: 2rem;
-  background: var(--main-color);
-  color: var(--bg-color);
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
-}
-.login-btn{
-  width: 50%;
-  margin: 0 auto;
-}
-button:hover {
-  transform: scale(1.1);
-}
-input::placeholder{
-  color: var(--main-color);
-}
-
-/* Popup */
-#popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background: var(--bg-color);
-  padding: 13rem 7rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 5rem var(--main-color);
-  font-size: 4rem;
-  font-weight: 600;
-  text-align: center;
-  transition: transform 0.3s ease;
-  z-index: 100;
-  color: var(--main-color); /* default green */
-}
-#popup.show {
-  transform: translate(-50%, -50%) scale(1);
-}
-#popup.denied {
-  color: red;
-}
-/* Admin Panel */
-#admin-panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-#logout-btn {
-  align-self: flex-end;
-  margin: 2rem;
-  font-weight: 600;
-  background: transparent;
-  border: 3px solid var(--main-color);
-  color: var(--main-color);
-  padding:0.5rem 1.5rem;
-  cursor: pointer;
-}
-
-.cards {
-  display: flex;
-  gap: 3rem;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-}
-
-.card {
-  background: var(--bg-color);
-  padding: 7rem;
-  border-radius: 1rem;
-  text-align: center;
-  cursor: pointer;
-  border: 3px solid var(--main-color);
-  transition: transform 0.3s ease;
-  font-size: 4rem;
-  width: 20rem;
-  font-weight: 700;
-}
-
-.card i {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-  color: var(--main-color);
-}
-
-.card:hover {
-  /*transform: translateY(-1rem);*/
-    transform: scale(1.1);
-      box-shadow: 0 0 5rem var(--main-color);
-
-
-}
-
-/* Blog & Project Sections */
-.section-page {
-  width: 100%;
-  height: 100%;
-  background: var(--bg-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3rem;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.back-btn {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  font-size: 2rem;
-  background: transparent;
-  border: none;
-  color: var(--main-color);
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  body * {
-    display: none !important;
-  }
-  body::before {
-    content: "Not available for phones";
-    color: var(--main-color);
-    font-size: 2rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-</style>
-</head>
-<body>
-
-<section id="login-section">
-  <form id="login-form">
-    <h2>Admin</h2>
-    <input type="text" id="username" placeholder="Username" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <button class="login-btn" type="submit">Login</button>
-  </form>
-</section>
-
-<div id="popup"></div>
-
-<section id="admin-panel" class="hidden">
-  <button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
-  <div class="cards">
-    <div class="card" id="blog-card">
-      <!-- <i class="fas fa-blog"></i> -->
-      <i class="fa-solid fa-newspaper"></i>
-      Blog
-    </div>
-    <div class="card" id="project-card">
-      <!-- <i class="fas fa-project-diagram"></i> -->
-      <i class="fa-solid fa-laptop-code"></i>
-      Project
-    </div>
-  </div>
-</section>
-
-<section id="blog-section" class="hidden section-page">
-  <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
-  <p>Blog Section (empty for now)</p>
-</section>
-
-<section id="project-section" class="hidden section-page">
-  <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
-  <p>Project Section (empty for now)</p>
-</section>
-
-<script>
-// Hash function (SHA-256)
-async function hashData(data) {
-  const encoder = new TextEncoder();
-  const dataBuffer = encoder.encode(data);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", dataBuffer);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
-// Pre-hashed password
-const storedUsername = "Jibran";
-const storedPasswordHash = "20ee235b5de5b36244da6f9aa1cbdd032a90867ba92276ccc8c38c0d0d57fcec"; 
-
-const loginForm = document.getElementById("login-form");
-const loginSection = document.getElementById("login-section");
-const adminPanel = document.getElementById("admin-panel");
-const popup = document.getElementById("popup");
-const usernameInput = document.getElementById("username");
-const passwordInput = document.getElementById("password");
-
-loginForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const username = usernameInput.value;
-  const password = passwordInput.value;
-  const hashedPassword = await hashData(password);
-
-  if (username === storedUsername && hashedPassword === storedPasswordHash) {
-    showPopup("Access Granted", true);
-    setTimeout(() => {
-      loginSection.classList.add("hidden");
-      adminPanel.classList.remove("hidden");
-    }, 1500);
-  } else {
-    showPopup("Access Denied", false);
-  }
-
-  // Clear inputs after popup shows
-  usernameInput.value = "";
-  passwordInput.value = "";
-});
-
-function showPopup(message, granted) {
-  popup.textContent = message;
-  popup.classList.remove("denied");
-  if (!granted) popup.classList.add("denied");
-  popup.classList.add("show");
-  setTimeout(() => popup.classList.remove("show"), 1500);
-}
-
-// Navigation
-document.getElementById("logout-btn").addEventListener("click", () => {
-  adminPanel.classList.add("hidden");
-  loginSection.classList.remove("hidden");
-});
-
-document.getElementById("blog-card").addEventListener("click", () => {
-  adminPanel.classList.add("hidden");
-  document.getElementById("blog-section").classList.remove("hidden");
-});
-
-document.getElementById("project-card").addEventListener("click", () => {
-  adminPanel.classList.add("hidden");
-  document.getElementById("project-section").classList.remove("hidden");
-});
-
-document.querySelectorAll(".back-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.getElementById("blog-section").classList.add("hidden");
-    document.getElementById("project-section").classList.add("hidden");
-    adminPanel.classList.remove("hidden");
-  });
-});
-</script>
-
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="admin.css">
+  </head>
+  <body>
+    <!-- Login Section -->
+    <section id="loginsectionadmin" class="activeadmin">
+      <div class="loginboxadmin">
+        <div class="loginheadingadmin">Admin</div>
+        <input type="text" id="usernameadmin" class="logininputadmin" placeholder="Username">
+        <input type="password" id="passwordadmin" class="logininputadmin" placeholder="Password">
+        <button class="loginbtnadmin" onclick="loginadmin()">Login</button>
+      </div>
+      <!-- Popup messages -->
+      <div id="popupadmin" class="popupadmin"></div>
+    </section>
+    <!-- Dashboard Section -->
+    <section id="dashboardsectionadmin">
+      <div class="dashboardheaderadmin">
+        <button class="logoutbtnadmin" onclick="logoutadmin()">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout </button>
+      </div>
+      <div class="dashboardcontentadmin">
+        <div class="dashboardboxadmin" onclick="openBlogadmin()">
+          <i class="fa-solid fa-pen"></i>
+          <div class="dashdiv">Blog</div>
+        </div>
+        <div class="dashboardboxadmin" onclick="openProjectadmin()">
+          <i class="fa-solid fa-code"></i>
+          <div class="dashdiv">Project</div>
+        </div>
+      </div>
+    </section>
+    <!-- Blog Section (pre-coded externally, don’t rename) -->
+    <section id="blogsection" class="sectionpage">
+      <button class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <button class="save-btn" id="save-btn">Save</button>
+      <button class="plus-btn" id="plus-btn">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <div class="popupblog" id="popupblog">
+        <button data-type="title">Title</button>
+        <button data-type="heading">Heading</button>
+        <button data-type="paragraph">Paragraph</button>
+        <button data-type="heading2">Heading 2</button>
+        <button data-type="heading3">Heading 3</button>
+        <button data-type="link">Link</button>
+        <button data-type="audio">Audio</button>
+        <button data-type="image">Image</button>
+        <button data-type="video">Video</button>
+        <button data-type="customButton">Button</button>
+        <button data-type="listblock">List</button>
+        <button data-type="italic">Italic</button>
+      </div>
+      <template id="template-title">
+        <div class="content-block">
+          <button class="delete-btn">X</button>
+          <textarea placeholder="Enter Title" class="title"></textarea>
+        </div>
+      </template>
+      <template id="template-heading">
+        <div class="content-block">
+          <button class="delete-btn">X</button>
+          <textarea placeholder="Enter Heading" class="heading"></textarea>
+        </div>
+      </template>
+      <template id="template-paragraph">
+        <div class="content-block">
+          <button class="delete-btn">X</button>
+          <textarea placeholder="Enter Paragraph" class="paragraph"></textarea>
+        </div>
+      </template>
+      <template id="template-heading2">
+        <div class="content-block">
+          <button class="delete-btn">X</button>
+          <textarea placeholder="Enter Heading 2" class="heading-two"></textarea>
+        </div>
+      </template>
+      <template id="template-heading3">
+        <div class="content-block">
+          <button class="delete-btn">X</button>
+          <textarea placeholder="Enter Heading 3" class="heading-three"></textarea>
+        </div>
+      </template>
+      <template id="template-link">
+        <div class="content-block">
+          <button class="delete-btn">X</button>
+          <textarea placeholder="Enter Link" class="link"></textarea>
+        </div>
+      </template>
+      <template id="template-audio">
+        <div class="content-block">
+          <button class="delete-btn">X</button>
+          <div class="media-container">
+            <button class="upload-audio">Upload</button>
+            <audio controls></audio>
+          </div>
+        </div>
+      </template>
+      <template id="template-image">
+        <div class="content-block">
+          <button class="delete-btn">X</button>
+          <div class="media-container">
+            <!-- <button class="upload-image">Upload</button> -->
+            <button class="link-image">Link</button>
+          </div>
+        </div>
+      </template>
+      <template id="template-video">
+        <div class="content-block">
+          <button class="delete-btn">X</button>
+          <div class="media-container">
+            <!-- <button class="upload-video">Upload</button> -->
+            <button class="link-video">Link</button>
+          </div>
+        </div>
+      </template>
+      <template id="template-customButton">
+        <div class="content-block">
+          <button class="delete-btn">X</button>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <button class="dynamic-config-btn">+Add</button>
+          </div>
+        </div>
+      </template>
+      <template id="template-listblock">
+        <div class="content-block">
+          <button class="delete-btn">X</button>
+          <div class="list-controls">
+            <button class="count-list-btn">Counting list</button>
+            <button class="bullet-list-btn">Bullet point list</button>
+          </div>
+          <div class="list-area"></div>
+        </div>
+      </template>
+      <template id="template-italic">
+        <div class="content-block">
+          <button class="delete-btn">X</button>
+          <textarea class="italic-textarea" placeholder="Enter italic text"></textarea>
+        </div>
+      </template>
+      <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+          <div id="modalTitle" style="font-weight:700; margin-bottom:6px;">Configure Button</div>
+          <label for="modalName">Name</label>
+          <input type="text" id="modalName" placeholder="Button name (text shown)" />
+          <label for="modalLink">Link (URL)</label>
+          <input type="text" id="modalLink" placeholder="https://example.com" />
+          <div style="margin-top:8px; font-size:0.85rem; color:#7fffa5;">Leave link empty to keep the button non-navigating.</div>
+          <div class="actions" style="margin-top:12px;">
+            <button id="modalCancel">Cancel</button>
+            <button id="modalSave">Save</button>
+          </div>
+        </div>
+      </div>
+      <div class="save-modal-overlay" id="saveModalOverlay" role="dialog" aria-modal="true" aria-labelledby="saveModalTitle" aria-hidden="true">
+        <div class="save-modal" role="document" aria-label="Save Blog Dialog">
+          <div class="header">
+            <h2 id="saveModalTitle">Blog Details</h2>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <button class="close-save" id="saveModalCancel" title="Close">✕</button>
+            </div>
+          </div>
+          <div class="save-stages" id="saveStages">
+            <div class="save-stage active" data-stage="1" id="stage1">
+              <div class="field-row">
+                <label for="saveTitle">Title</label>
+                <input id="saveTitle" type="text" placeholder="Enter blog title" />
+              </div>
+              <div class="field-row">
+                <label for="saveKeywords">Keywords (comma separated)</label>
+                <input id="saveKeywords" type="text" placeholder="keyword1, keyword2, ..." />
+              </div>
+              <div class="field-row">
+                <label for="saveDescription">Description</label>
+                <textarea id="saveDescription" placeholder="Short description of the blog"></textarea>
+              </div>
+              <div class="field-row">
+                <label for="saveRobots">Robots</label>
+                <input id="saveRobots" type="text" placeholder="e.g. index, follow" />
+              </div>
+              <div class="center-actions" style="margin-top:10px;">
+                <button class="btn" id="stage1Next">Next</button>
+              </div>
+            </div>
+            <div class="save-stage hidden" data-stage="2" id="stage2" aria-hidden="true">
+              <div>
+                <!-- <h3 style="margin:0 0 6px 0;">Authorization Required</h3> -->
+                <div class="author-card" aria-hidden="false">
+                  <div class="author-photo" aria-hidden="true">
+                    <img src="Jibran.png" alt="Jibranzada" style="display:block;" />
+                    <!-- <span style="font-weight:800; color:#3CFF15;">MJ</span> -->
+                  </div>
+                  <div class="author-meta">
+                    <div class="name">Muhammad Jibran Zada</div>
+                    <div class="bio">Author.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="field-row" style="margin-top:12px;">
+                <label for="authPassword">Password</label>
+                <input id="authPassword" type="password" placeholder="Enter your password" aria-describedby="passwordHelp" />
+                <div id="passwordHelp" class="security-indicator">
+                  <i class="fas fa-shield-alt security-icon"></i>
+                  <span>Password is securely hashed with SHA-256</span>
+                </div>
+                <div class="error" id="passwordError" style="display:none;">
+                  <i class="fas fa-exclamation-triangle"></i> Incorrect password. Please try again.
+                </div>
+              </div>
+              <div class="center-actions" style="margin-top:8px;">
+                <button class="btn secondary" id="stage2Back">Back</button>
+                <button class="btn" id="stage2Next">Verify & Continue</button>
+              </div>
+            </div>
+            <div class="save-stage hidden" data-stage="3" id="stage3" aria-hidden="true">
+              <div>
+                <!-- <h3 style="margin:0 0 6px 0;">Export Blog</h3> -->
+                <p style="margin: 0 0 10px 0; color: rgba(127,255,165,0.9);">Your blog is ready! Click Download to save it as an HTML file</p>
+                <div class="export-progress" id="exportProgress">
+                  <div class="spinner"></div>
+                  <span>Generating HTML file...</span>
+                </div>
+              </div>
+              <div class="center-actions" style="margin-top:auto;">
+                <button class="btn secondary" id="stage3Back">Back</button>
+                <button class="btn" id="stage3Download">Download</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Project Section (pre-coded externally, don’t rename) -->
+    <section id="blogsection" class="sectionpage"></section>
+    <script src="admin.js"></script>
+  </body>
 </html>
