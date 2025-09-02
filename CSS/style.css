@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: Quicksand;
@@ -8,12 +8,12 @@
   outline: none;
 }
 
-:root{
-  --bg-color:black;
-  --second-bg-color:#1f242d;
-  --main-color: #3CFF15 ;
-  --white-color:#fff;
-  --disabled-color:#fff3;
+:root {
+  --bg-color: black;
+  --second-bg-color: #1f242d;
+  --main-color: #3CFF15;
+  --white-color: #fff;
+  --disabled-color: #fff3;
 }
 
 html {
@@ -21,16 +21,16 @@ html {
 }
 
 body {
-color: var(--main-color);
-background: var(--bg-color);
+  color: var(--main-color);
+  background: var(--bg-color);
 }
 
 
-header{
+header {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   padding: 1.5rem 4%;
   background: var(--bg-color);
   display: flex;
@@ -39,14 +39,14 @@ header{
   z-index: 100;
 }
 
-.logo{
+.logo {
   font-size: 3.2rem;
   color: var(--main-color);
   font-style: bold;
   font-weight: 700;
 }
 
-nav a{
+nav a {
   font-size: 2rem;
   color: var(--main-color);
   font-weight: 700;
@@ -60,7 +60,7 @@ nav a{
   padding-right: 9px;
 }
 
-nav a:hover{
+nav a:hover {
   border: 3px solid var(--main-color);
   border-radius: 30px;
   padding-top: 4px;
@@ -69,8 +69,8 @@ nav a:hover{
   padding-right: 9px;
 }
 
-nav .home{
-   border: 3px solid var(--main-color);
+nav .home {
+  border: 3px solid var(--main-color);
   border-radius: 30px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -88,33 +88,35 @@ section {
   position: absolute;
   width: 100%;
   height: 100%;
-  padding: 10rem 9%  2rem;
+  padding: 10rem 9% 2rem;
   background: var(--bg-color);
 }
 
-.homesection{
+.homesection {
   display: flex;
   align-items: center;
   gap: 5rem;
   height: 98%;
 }
-.home-detail{
+
+.home-detail {
   width: 65%;
-    /*backdrop-filter: blur(1px);*/
+  /*backdrop-filter: blur(1px);*/
   z-index: 99;
   margin-top: -5rem;
 }
-.home-detail h1{
-font-size: clamp(3.5rem , 10vw, 5.5rem);
+
+.home-detail h1 {
+  font-size: clamp(3.5rem, 10vw, 5.5rem);
 }
 
-.home-detail h2{
+.home-detail h2 {
   display: inline-block;
   font-size: 3.2rem;
   margin-top: -0.5rem;
 }
 
-.home-detail p{
+.home-detail p {
   font-size: 2rem;
   /*margin: 1rem, 0, 5.5rem;*/
   margin-top: 1rem;
@@ -122,13 +124,13 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
 }
 
 
-.home-detail .btn-sci{
+.home-detail .btn-sci {
   display: flex;
   align-items: center;
 }
 
 
-.btn{
+.btn {
   display: inline-block;
   /*padding: 1rem, 3rem;*/
   padding-top: 5px;
@@ -147,21 +149,21 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   transition: 0.5s;
 }
 
-.btn:hover{
+.btn:hover {
   background: transparent;
   color: var(--main-color);
-  box-shadow:  none;
+  box-shadow: none;
 }
 
-.btn-sci a{
+.btn-sci a {
   font-weight: 600;
 }
 
-.home-detail .btn-sci .sci{
+.home-detail .btn-sci .sci {
   margin-left: 2rem;
 }
 
-.home-detail .btn-sci .sci a{
+.home-detail .btn-sci .sci a {
   display: inline-flex;
   padding: 1rem;
   border: 0.2rem solid var(--main-color);
@@ -173,16 +175,16 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
 }
 
 
-.home-detail .btn-sci .sci a:hover{
+.home-detail .btn-sci .sci a:hover {
   background: var(--main-color);
   color: var(--bg-color);
   box-shadow: 0, 0, 1rem var(--main-color);
 }
 
 
-.home-img .img-box{
+.home-img .img-box {
   position: relative;
-  width: 50vw;  
+  width: 50vw;
   height: 50vw;
   /*border-radius: 50%;*/
   padding: 0.5rem;
@@ -192,20 +194,20 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   overflow: hidden;
 }
 
-.home-img .img-box .img-item{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    /*border-radius: 50%;*/
-    border: 0.01rem solid var(--bg-color);
-    display: flex;
-    justify-content: center;
-    z-index: 1;
-    overflow: hidden;
+.home-img .img-box .img-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  /*border-radius: 50%;*/
+  border: 0.01rem solid var(--bg-color);
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
 }
-  
-.home-img .img-box .img-item img{
+
+.home-img .img-box .img-item img {
   /*position: absolute;*/
   top: 3rem;
   display: block;
@@ -215,14 +217,15 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
 }
 
 
-.homesection .home-detail #greeting{
+.homesection .home-detail #greeting {
   font-size: 2rem;
   margin-top: -5rem;
   margin-bottom: 3rem;
 }
 
-
-
+.home-detail{
+  /*margin-top: -10rem;*/
+}
 /*========================= Image animation ===========================*/
 
 
@@ -256,8 +259,6 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
 }
 
 
-
-
 /*===========================Navbar Animation =========================*/
 
 /* Initial hidden state */
@@ -274,16 +275,14 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
 }
 
 
-
-
-
-
 .home-img {
-  position: fixed; /* Always fixed on screen */
-  top: 75%;
-  right: 5%; /* adjust as needed */
+  position: fixed;
+  /* Always fixed on screen */
+  top: 65%;
+  right: -5%;
+  /* adjust as needed */
   transform: translateY(-50%);
-  width: 32vw;
+  width: 52vw;
   height: 100%;
   z-index: 1;
   display: flex;
@@ -327,11 +326,12 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center; /* center it vertically from top */
+  object-position: top center;
+  /* center it vertically from top */
   mix-blend-mode: lighten;
 }
 
-.btn-sci a{
+.btn-sci a {
   cursor: pointer;
 }
 
@@ -341,11 +341,13 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   cursor: pointer;
   transition: opacity 1s ease;
 }
+
 .fade-in-btn {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 1s ease, transform 1s ease;
-  pointer-events: none; /* Prevent clicks while hidden */
+  pointer-events: none;
+  /* Prevent clicks while hidden */
 }
 
 .fade-in-btn.visible {
@@ -353,26 +355,6 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   transform: translateY(0);
   pointer-events: auto;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ===================== Mobile Responsive Styles ===================== */
@@ -398,7 +380,8 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
     right: -100%;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* dark blur background */
+    background: rgba(0, 0, 0, 0.3);
+    /* dark blur background */
     backdrop-filter: blur(10px);
     z-index: 100;
     display: flex;
@@ -412,19 +395,20 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
     right: 0;
   }
 
-.mobile-nav .mobone{
-  font-size: 2.4rem;
-  background: var(--main-color);
+  .mobile-nav .mobone {
+    font-size: 2.4rem;
+    background: var(--main-color);
     color: var(--bg-color);
     margin: 1.5rem 0;
     font-weight: 700;
     transition: 0.3s;
     padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 20px;
-}
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+  }
+
   .mobile-nav a {
     font-size: 2.4rem;
     color: var(--main-color);
@@ -432,21 +416,22 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
     font-weight: 700;
     transition: 0.3s;
     padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 20px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
   }
 
-  .mobile-nav a:hover, .mobone {
+  .mobile-nav a:hover,
+  .mobone {
     background: var(--main-color);
-  color: var(--bg-color);
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 20px;
-  box-shadow: 0, 0, 1rem var(--main-color);
+    color: var(--bg-color);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+    box-shadow: 0, 0, 1rem var(--main-color);
   }
 
   /* Home section layout - vertical stack */
@@ -482,50 +467,57 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
     text-align: center;
   }
 
-  .home-detail h1{
+  .home-detail h1 {
     margin-top: -20px;
     /*font-size: 3rem;*/
   }
-.home-detail h2{
-  font-size: 1.8rem;
-  width: 100%;
-}
 
-.home-detail p{
-  font-size: 1.7rem;
-  /*font-weight: 600;*/
-}
+  .home-detail h2 {
+    font-size: 1.8rem;
+    width: 100%;
+  }
+
+  .home-detail p {
+    font-size: 1.7rem;
+    /*font-weight: 600;*/
+  }
+
   #whoami-btn {
     display: block;
     cursor: pointer;
     margin: 2rem auto 0 auto;
   }
 
-/* Reverse order of image and text on mobile */
-@media (max-width: 768px) {
-  .homesection {
-    display: flex;
-    flex-direction: column-reverse; /* This flips the order */
-    gap: 3rem;
-    text-align: center;
+  /* Reverse order of image and text on mobile */
+  @media (max-width: 768px) {
+    .homesection {
+      display: flex;
+      flex-direction: column-reverse;
+      /* This flips the order */
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .homesection {
+      margin-top: -10px;
+      padding-bottom: 5rem;
+      /* Reduce bottom spacing */
+      padding-top: 5rem;
+      /* Optionally reduce top as well */
+    }
+
   }
-  .homesection  {
-    margin-top: -10px;
-  padding-bottom: 5rem; /* Reduce bottom spacing */
-  padding-top: 5rem;     /* Optionally reduce top as well */
-}
-
-}
-
 
 
 }
+
 /*====================== who am i as pointer for all desktop and mobile*/
 .fade-in-btn {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 1s ease, transform 1s ease;
-  pointer-events: none; /* still here by default */
+  pointer-events: none;
+  /* still here by default */
   cursor: default;
 }
 
@@ -533,7 +525,8 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-  cursor: pointer; /* cursor becomes pointer when visible */
+  cursor: pointer;
+  /* cursor becomes pointer when visible */
 }
 
 
@@ -552,7 +545,6 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
   pointer-events: auto;
   cursor: pointer;
 }
-
 
 
 /*============================= hiding scroll bar line ===================*/
@@ -574,25 +566,16 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
 
 /* Hide scrollbar for Firefox */
 body {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
 }
 
 /* Optional: just in case, remove from html tag too */
 html {
   scrollbar-width: none;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 @media (max-width: 768px) {
@@ -603,28 +586,28 @@ html {
     height: 95%;
     text-align: center;
     margin-top: 1rem;
-    gap: 1rem; /* Reduces space between image & text */
+    gap: 1rem;
+    /* Reduces space between image & text */
   }
 
   .home-img {
     order: -1;
     margin-top: 8rem;
     padding-bottom: 0;
-    margin-bottom: 0; /* Optional: further reduce spacing */
+    margin-bottom: 0;
+    /* Optional: further reduce spacing */
   }
 
   .home-detail {
     order: 1;
     padding-top: -30px;
-    margin-top: 0; /* Reset any top margin that might be adding space */
+    margin-top: -80px;
+    /* Reset any top margin that might be adding space */
   }
 }
 
 
-
 /*===================== Scaning line animation for image on desktop =============*/
-
-
 
 
 .img-item {
@@ -634,7 +617,7 @@ html {
 
 .img-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   clip-path: inset(100% 0 0 0);
   animation: revealImage 1s ease-in-out forwards;
@@ -650,7 +633,7 @@ html {
   height: 3px;
   background-color: var(--main-color);
   z-index: 5;
-  animation: scanLine 8.5s ease-in-out forwards;
+  animation: scanLine 7.6s ease-in-out forwards;
 }
 
 /* Reveal animation */
@@ -658,6 +641,7 @@ html {
   0% {
     clip-path: inset(100% 0 0 0);
   }
+
   100% {
     clip-path: inset(0 0 0 0);
   }
@@ -670,20 +654,20 @@ html {
     opacity: 1;
   }
 
-  47% {
+  62% {
     opacity: 1;
   }
-  48% {
+
+  63% {
     /*top: 46%;*/
     opacity: 0;
   }
+
   100% {
     top: 100%;
     opacity: 0;
   }
 }
-
-
 
 
 /*=================Scaning line animation for image in mobile mode ==============*/
@@ -692,71 +676,69 @@ html {
 @media (max-width: 768px) {
 
 
-.img-item {
-  position: relative;
-  overflow: hidden;
-}
+  .img-item {
+    position: relative;
+    overflow: hidden;
+  }
 
-.img-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  clip-path: inset(100% 0 0 0);
-  animation: revealImage 1s ease-in-out forwards;
-}
-
-/* Scanning line effect on top of image */
-.img-item::after {
-  content: "";
-  position: absolute;
-  top: 0%;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: var(--main-color);
-  z-index: 5;
-  animation: scanLine 5.6s ease-in-out forwards;
-}
-
-/* Reveal animation */
-@keyframes revealImage {
-  0% {
+  .img-item img {
+    width: 100%;
+    height: auto;
+    display: block;
     clip-path: inset(100% 0 0 0);
+    animation: revealImage 1s ease-in-out forwards;
   }
 
-  100% {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-/* Scanning line animation */
-@keyframes scanLine {
-
-  0% {
+  /* Scanning line effect on top of image */
+  .img-item::after {
+    content: "";
+    position: absolute;
     top: 0%;
-    opacity: 1;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--main-color);
+    z-index: 5;
+    animation: scanLine 5.6s ease-in-out forwards;
   }
 
-  /*60% {
+  /* Reveal animation */
+  @keyframes revealImage {
+    0% {
+      clip-path: inset(100% 0 0 0);
+    }
+
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* Scanning line animation */
+  @keyframes scanLine {
+
+    0% {
+      top: 0%;
+      opacity: 1;
+    }
+
+    /*60% {
     top: 60%;
     opacity: 1;
   }*/
-  99% {
-    top: 99%;
-    /*top: 46%;*/
-    opacity: 1;
+    99% {
+      top: 99%;
+      /*top: 46%;*/
+      opacity: 1;
+    }
+
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
   }
-  100% {
-    top: 100%;
-    opacity: 0;
-  }
-}
 
 
 }
-
-
-
 
 
 /* ===================== Mobile Responsive Styles ===================== */
@@ -774,7 +756,8 @@ html {
 
   /* Add top padding to body so content doesn't hide under fixed header */
   body {
-    padding-top: 0px; /* matches header height */
+    padding-top: 0px;
+    /* matches header height */
   }
 
   /* Show menu icon */
@@ -811,7 +794,7 @@ html {
     right: 0;
   }
 
-  .mobile-nav .mobone{
+  .mobile-nav .mobone {
     font-size: 2.4rem;
     background: var(--main-color);
     color: var(--bg-color);
@@ -832,68 +815,69 @@ html {
     border-radius: 20px;
   }
 
-  .mobile-nav a:hover, .mobone {
+  .mobile-nav a:hover,
+  .mobone {
     background: var(--main-color);
     color: var(--bg-color);
     padding: 5px 10px;
     border-radius: 20px;
     box-shadow: 0 0 1rem var(--main-color);
-  }  
+  }
 }
-
-
 
 
 /*================================= Footer ============================*/
 /* Footer Container */
 .footer-bar {
-    width: 80%;
-    margin: 30px auto;
-    border: 2px solid var(--main-color);
-    border-radius: 5px;
-    background-color: var(--bg-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
+  width: 80%;
+  margin: 30px auto;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
 }
 
 /* Text Styling */
 .footer-bar h1 {
-    color: var(--main-color);
-    font-size: 2em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 0;
+  color: var(--main-color);
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
 }
 
-   .footer-bar .rightfooter{
-    font-size: 1.5rem;
-   }
+.footer-bar .rightfooter {
+  font-size: 1.5rem;
+}
 
 
 /* Verified Badge */
 .footer-bar .verified-icon {
-    width: 17px;
-    height: 17px;
+  width: 17px;
+  height: 17px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .footer-bar {
-        width: 90%;
-        /*flex-direction: column;*/
-        text-align: center;
-        gap: 8px;
-        margin-bottom: 30px;
-    }
-    .footer-bar h1{
-      font-size: 1.5rem;
-    }
-   .footer-bar .rightfooter{
-      font-size: 1.3rem;
-    }
+  .footer-bar {
+    width: 90%;
+    /*flex-direction: column;*/
+    text-align: center;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+
+  .footer-bar h1 {
+    font-size: 1.5rem;
+  }
+
+  .footer-bar .rightfooter {
+    font-size: 1.3rem;
+  }
 }
 
 
@@ -901,19 +885,21 @@ html {
 
 
 * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body, html {
-      height: 100%;
-      background-color: #000;
-      overflow: hidden;
-      /*backdrop-filter: blur(10px);*/
-      position: relative;
-      margin: 0;
-    }
+body,
+html {
+  height: 100%;
+  background-color: #000;
+  overflow: hidden;
+  /*backdrop-filter: blur(10px);*/
+  position: relative;
+  margin: 0;
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -923,66 +909,79 @@ body::before {
   height: 100vh;
   z-index: 1;
   backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px); /* for Safari */
-  /*background-color: rgba(0, 0, 0, 0.5); /* optional: keeps black tint */*/
-  pointer-events: none; /* so it doesn't interfere with clicks */
+  -webkit-backdrop-filter: blur(2px);
+  /* for Safari */
+  /*background-color: rgba(0, 0, 0, 0.5); /* optional: keeps black tint */
+  */ pointer-events: none;
+  /* so it doesn't interfere with clicks */
 }
 
-    .canvas-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1; /* Ensure the animation stays behind content */
-    }
-
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: var(--bg-color);
-        backdrop-filter: blur(10px);
-      opacity: 1; /* Dimmed opacity */
-    }
-
-    /* Dot customization */
-    .dot {
-      width: 6px; /* Dot size */
-      height: 6px; /* Dot size */
-      background: var(--main-color);
-      /*background-color: rgba(0, 255, 0, 0.2); /* Dot color with opacity */*/
-      border-radius: 50%;
-      opacity: 0.1;
-    }
-
-    /* Line customization */
-    .line {
-      width: 5px; /* Line thickness */
-      background: var(--main-color);
-      /*background-color: rgba(0, 255, 0, 1); /* Line color with higher opacity */*/
-      opacity: 1; /* Brighter line opacity */
-    }
-@media (max-width: 768px) {
-  body::before {
-  content: '';
-  position: fixed;
+.canvas-container {
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(3px); /* for Safari */
-  /*background-color: rgba(0, 0, 0, 0.5); /* optional: keeps black tint */*/
-  pointer-events: none; /* so it doesn't interfere with clicks */
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /* Ensure the animation stays behind content */
 }
-    .canvas-container {
-      display: none;
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  backdrop-filter: blur(10px);
+  opacity: 1;
+  /* Dimmed opacity */
 }
-canvas{
-  display: none;
+
+/* Dot customization */
+.dot {
+  width: 6px;
+  /* Dot size */
+  height: 6px;
+  /* Dot size */
+  background: var(--main-color);
+  /*background-color: rgba(0, 255, 0, 0.2); /* Dot color with opacity */
+  */ border-radius: 50%;
+  opacity: 0.1;
 }
+
+/* Line customization */
+.line {
+  width: 5px;
+  /* Line thickness */
+  background: var(--main-color);
+  /*background-color: rgba(0, 255, 0, 1); /* Line color with higher opacity */
+  */ opacity: 1;
+  /* Brighter line opacity */
+}
+
+@media (max-width: 768px) {
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(3px);
+    /* for Safari */
+    /*background-color: rgba(0, 0, 0, 0.5); /* optional: keeps black tint */
+    */ pointer-events: none;
+    /* so it doesn't interfere with clicks */
+  }
+
+  .canvas-container {
+    display: none;
+  }
+
+  canvas {
+    display: none;
+  }
 }
