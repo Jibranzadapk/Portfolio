@@ -102,6 +102,7 @@ section {
   width: 65%;
     /*backdrop-filter: blur(1px);*/
   z-index: 99;
+  margin-top: -5rem;
 }
 .home-detail h1{
 font-size: clamp(3.5rem , 10vw, 5.5rem);
@@ -179,10 +180,10 @@ font-size: clamp(3.5rem , 10vw, 5.5rem);
 }
 
 
-.home-img -img-box{
+.home-img .img-box{
   position: relative;
-  width: 32vw;  
-  height: 32vw;
+  width: 50vw;  
+  height: 50vw;
   /*border-radius: 50%;*/
   padding: 0.5rem;
   display: flex;
@@ -601,7 +602,7 @@ html {
     align-items: center;
     height: 95%;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
     gap: 1rem; /* Reduces space between image & text */
   }
 

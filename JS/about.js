@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const img = document.querySelector(".right img");
   const leftDiv = document.querySelector(".left");
   const buttons = document.getElementById("button-group");
-  setTimeout(() => { img.style.clipPath = "inset(0 0 0 0)"; }, 500);
+  setTimeout(() => { img.style.clipPath = "inset(0 0 0 0)"; }, 200);
   setTimeout(() => {
     leftDiv.style.opacity = 1;
     typeText("typed-name", "M Jibran Zada", () => {
@@ -86,10 +86,10 @@ setTimeout(() => {
     const details = [
          "",
       // "......................................................................................",
-            "Name: Jibran Khan",
+            "Name: Jibran Zada",
             "DOB: 18-Jan-2006",
             "Nationality : Pakistan ",
-            "Status: Undergrad Student",            
+            "Status: Bachelor's Student",            
             "Languages: English, Urdu, Pashto",
             "Specialization: Information Security ",
             // " ......................................................................................."
