@@ -12,12 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <title>Jibran Zada Portfolio</title>
-    <link rel="stylesheet" type="text/css" href="CSS/style.css">
-  </head>
-  <body>
+</head>
+<body>
     <!-- -------------------------------------------header ----------------------------------------->
-    <header>
+        <header>
       <a href="#" class="logo">Portfolio.</a>
       <i class='bx  bx-menu' id="menu-icon"></i>
       <nav>
@@ -36,45 +36,39 @@
       <a href="Blogs.html">Blogs</a>
       <a href="Contact.html">Contact</a>
     </div>
-    <div class="content">
       <!-- -------------------------------------------Home Section ------------------------------------------>
-      <section class="homesection">
-        <div class="home-detail">
-          <!-- <h1 id="greeting"></h1> -->
-          <h1>M Jibran Zada</h1>
-          <h2>A Next Gen Cyber Sec Enthusiast</h2>
-          <p>Breaking firewalls, chasing shadows — because when it gets quiet, that’s when it gets real.</p>
-          <div class="btn-sci">
-            <!-- <a href="#" class="btn">Who am I ?</a> -->
-            <!-- <a href="#" class="btn" id="whoami-btn" style="display: none;">Who am I ?</a> -->
-            <a href="About.html" class="btn fade-in-btn" id="whoami-btn">Who am I ?</a>
-            <!-- <div class="sci"><a href="#"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/github.png" alt="github"/></a><a href="#"></a><a href="#"></a><a href="#"></a> -->
-          </div>
-        </div>
-        <div class="home-img">
-          <div class="img-box">
-            <div class="img-item">
-              <!-- <img src="Media/JibranZada.png"> -->
-              <img src="Media/Jibran.png">
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- =================================== Footer ============================ -->
-      <footer class="footer-bar">
-        <h1> Jibran
-          <!-- Inline SVG Verified Badge -->
-          <svg class="verified-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--main-color)" width="20" height="20">
-            <circle cx="12" cy="12" r="11" stroke="var(--main-color)" stroke-width="2" fill="none" />
-            <path fill="var(--main-color)" d="M10.0 15.2l-3.2-3.2 1.4-1.4 1.8 1.8 4.8-4.8 1.4 1.4z" />
-          </svg>
-        </h1>
-        <div></div>
-        <!-- Empty middle space -->
-        <h1 class="rightfooter">All rights reserved 2025</h1>
-      </footer>
+  <section class="hero">
+    <div class="particles">
+      <div class="particle" style="left:10%; width:3px;height:3px;animation-duration:6s; animation-delay:0s;"></div>
+      <div class="particle" style="left:25%; width:4px;height:4px;animation-duration:7s; animation-delay:2s;"></div>
+      <div class="particle" style="left:50%; width:2px;height:2px;animation-duration:5s; animation-delay:1s;"></div>
+      <div class="particle" style="left:75%; width:3px;height:3px;animation-duration:8s; animation-delay:3s;"></div>
+      <div class="particle" style="left:90%; width:5px;height:5px;animation-duration:9s; animation-delay:1s;"></div>
     </div>
-    <script src="JS/lowpoly.js" defer></script>
-    <script src="JS/script.js"></script>
-  </body>
+
+    <h1>Jibran Zada</h1>
+    <img src="Media/Jibran-Zada.png" alt="Jibran Zada">
+
+    <div class="gadget about">
+      <p><strong class="strong">Cybersecurity Enthusiast</strong><br>
+        <span id="typing-container">
+          <span id="typing-text"></span><span class="typing-cursor"></span>
+        </span>
+      </p>
+    </div>
+
+    <div class="gadget cta">
+  <p>⚡ Want to know the real me?</p>
+  <button onclick="window.location.href='About.html'">Let's do it 🚀</button>
+</div>
+
+
+    <div class="gadget extra">
+      <p>🔒 Exploring • Learning • Securing</p>
+    </div>
+  </section>
+
+
+    <script src="JS/script.js"></script>  
+</body>
 </html>
