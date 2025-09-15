@@ -1,24 +1,24 @@
+// ======================== Typing Effect =================================
 const text = "For me, cybersecurity isn’t only about code and firewalls—it’s about trust. I’m learning every day to defend systems so people can feel safe in a connected world.";
-    const typingText = document.getElementById('typing-text');
-    let i = 0;
+const typingText = document.getElementById('typing-text');
+let i = 0;
 
-    function type() {
-      if(i < text.length){
-        typingText.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(type, 50); // slower typing speed
-      }
-    }
+function type() {
+  if (i < text.length) {
+    typingText.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 50); // typing speed
+  }
+}
 
-    window.addEventListener('DOMContentLoaded', type);
+window.addEventListener('DOMContentLoaded', type);
 
-    function knowMe() {
-      alert("Hello, I'm Jibran Zada — Cybersecurity Enthusiast!");
-    }
+function knowMe() {
+  alert("Hello, I'm Jibran Zada — Cybersecurity Enthusiast!");
+}
 
 
-    // ======================== Navbar Animation =================================
-
+// ======================== Navbar Animation =================================
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll("header nav a");
 
@@ -34,9 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-
-// Toggle mobile menu
+// ======================== Toggle Mobile Menu ==============================
 document.addEventListener("DOMContentLoaded", () => {
   const menuIcon = document.getElementById("menu-icon");
   const mobileNav = document.getElementById("mobileNav");
@@ -45,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileNav.classList.toggle("active");
   });
 
-  // Optional: close menu if any link clicked
+  // Close menu if any link clicked
   mobileNav.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       mobileNav.classList.remove("active");
@@ -54,26 +52,24 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-// ============================= Redirection page script =========================//
+// ============================= Redirection Logic ==========================
+// Keep root (/) clean, redirect only to Home.html for mobile users
 (function() {
   function handleRedirect() {
     const width = window.innerWidth;
     const isMobile = width <= 786;
-    const currentPage = window.location.pathname.split("/").pop(); // e.g., index.html
+    const currentPage = window.location.pathname.split("/").pop().toLowerCase(); 
+    // "" (root), "index.html", "home.html", etc.
 
-    if (isMobile && currentPage !== "Home.html") {
-      window.location.href = "Home.html";
-    } else if (!isMobile && currentPage !== "index.html") {
-      window.location.href = "index.html";
+    if (isMobile && currentPage !== "home.html") {
+      window.location.replace("home.html"); 
     }
+    // Desktop users: stay on / or index.html (no forced redirect).
   }
 
   // Run on page load
   handleRedirect();
 
-  // Run when window is resized
-  window.addEventListener("resize", function() {
-    handleRedirect();
-  });
+  // Run again when window is resized
+  window.addEventListener("resize", handleRedirect);
 })();
