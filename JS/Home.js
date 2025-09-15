@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const isMobile = width <= 786;
     const currentPage = window.location.pathname.split("/").pop().toLowerCase();
 
-    if (!isMobile && currentPage === "home.html") {
+    if (!isMobile && currentPage === "Home.html") {
       // Desktop users should go back to root (clean URL)
       window.location.replace("/");
     }

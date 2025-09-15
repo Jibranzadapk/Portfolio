@@ -59,10 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const width = window.innerWidth;
     const isMobile = width <= 786;
     const currentPage = window.location.pathname.split("/").pop().toLowerCase(); 
-    // "" (root), "index.html", "home.html", etc.
+    // "" (root), "index.html", "Home.html", etc.
 
-    if (isMobile && currentPage !== "home.html") {
-      window.location.replace("home.html"); 
+    if (isMobile && currentPage !== "Home.html") {
+      window.location.replace("Home.html"); 
     }
     // Desktop users: stay on / or index.html (no forced redirect).
   }
