@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatibe" content="IE-edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <!-- FontAwesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- Font Awesome CDN (Working Icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+<link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <title>My Summer Project: Building My Personal Portfolio Website.</title>
+    <meta name="description" content="I built my personal portfolio website during my summer break after the first semester, a project that reflects my growth, skills, and journey as a student learning web development.">
+    <meta name="keywords" content="portfolio, website, student, project, summer, coding, growth, personal, blog, development, html, css, javascript, responsive, hacker, design, journey, learning, skills, jibranzada,">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="author" content="Muhammad Jibran Zada">
+    <meta name="generator" content="Secure Blog Editor v1.0">
+
+    <style>
+      *{
+  margin: 0;
+  padding: 0;
+  font-family: Quicksand;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+:root{
+  --bg-color:black;
+  --main-color: #3CFF15 ;
+}
+
+        body {
+            font-family: 'Quicksand';
+            line-height: 1.6;
+            color: var(--main-color);
+            background-color: var(--bg-color);
+            /*max-width: 800px;*/
+            width: 75%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+html { 
+  font-size: 62.5%;
+}
+
+
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  padding: 1.5rem 4%;
+  background: var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo{
+  font-size: 3.2rem;
+  color: var(--main-color);
+  font-style: bold;
+  font-weight: 700;
+}
+
+nav a{
+  font-size: 2rem;
+  color: var(--main-color);
+  font-weight: 700;
+  margin-left: 1.5rem;
+  transition: 0.3s;
+  border: 3px solid transparent;
+  border-radius: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+nav a:hover{
+  border: 3px solid var(--main-color);
+  border-radius: 30px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+nav .home{
+   border: 3px solid var(--main-color);
+  border-radius: 30px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+#menu-icon {
+  font-size: 4rem;
+  display: none;
+}
+
+
+/*===========================Navbar Animation =========================*/
+
+/* Initial hidden state */
+.nav-hidden {
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Reveal animation */
+.nav-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===================== Mobile Responsive Styles ===================== */
+@media (max-width: 768px) {
+
+  /* Show menu icon */
+  #menu-icon {
+    display: block;
+    color: var(--main-color);
+    cursor: pointer;
+    z-index: 101;
+  }
+
+  /* Hide original navbar on mobile */
+  header nav {
+    display: none;
+  }
+
+  /* Fullscreen menu overlay */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* dark blur background */
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.4s ease;
+  }
+
+  .mobile-nav.active {
+    right: 0;
+  }
+
+.mobile-nav .mobone{
+  font-size: 2.4rem;
+  background: var(--main-color);
+    color: var(--bg-color);
+    margin: 1.5rem 0;
+    font-weight: 700;
+    transition: 0.3s;
+    padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+}
+  .mobile-nav a {
+    font-size: 2.4rem;
+    color: var(--main-color);
+    margin: 1.5rem 0;
+    font-weight: 700;
+    transition: 0.3s;
+    padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  }
+
+  .mobile-nav a:hover, .mobone {
+    background: var(--main-color);
+  color: var(--bg-color);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  box-shadow: 0, 0, 1rem var(--main-color);
+  }  
+}
+
+
+/*============================= hiding scroll bar line ===================*/
+/* Hide scrollbar for all elements */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* Optional: remove scrollbar track background */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Optional: remove scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Hide scrollbar for Firefox */
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* Optional: just in case, remove from html tag too */
+html {
+  scrollbar-width: none;
+}
+
+
+
+.blog-content{
+            margin-top: 70px;
+        }
+
+        .blog-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--main-color);
+            margin-bottom: 1rem;
+            /*text-align: center;*/
+            padding-bottom: 0.5rem;
+        }
+
+        .blog-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--main-color);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .blog-heading-2 {
+            font-size: 2.1rem;
+            font-weight: bold;
+            color: var(--main-color);
+            margin: 1.5rem 0 0.8rem 0;
+        }
+
+        .blog-heading-3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--main-color);
+            margin: 1.2rem 0 0.6rem 0;
+        }
+
+        .blog-paragraph {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .blog-italic {
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            color: var(--main-color);
+        }
+
+        .blog-link {
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            font-weight: bold;
+        }
+
+        .blog-link a {
+            color: var(--main-color);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .blog-link a:hover {
+            color: var(--main-color);
+            font-weight: bold;
+        }
+
+        .blog-image-container,
+        .blog-video-container,
+        .blog-iframe-container,
+        .blog-audio-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .blog-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .blog-iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+        }
+
+        .blog-audio {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .blog-ordered-list,
+        .blog-unordered-list {
+            margin: 1.2rem 0;
+            padding-left: 2rem;
+        }
+
+        .blog-ordered-list li,
+        .blog-unordered-list li {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-button-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .blog-button {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--bg-color);
+            color: var(--main-color);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: 2px solid var(--main-color);
+            cursor: pointer;
+            font-size: 1.7rem;
+        }
+
+        .blog-button:hover {
+            background-color: var(--main-color);
+            color: var(--bg-color);
+        }
+
+        .blog-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            /*border-top: 1px solid #eee;*/
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            .blog-title {
+                font-size: 2.2rem;
+            }
+            .blog-heading {
+                font-size: 1.6rem;
+            }
+
+            .blog-iframe {
+                height: 250px;
+            }
+            .blog-content{
+            margin-top: 100px;
+        }
+
+
+        .blog-heading {
+            font-size: 1.8rem;
+        }
+    .blog-heading-2 {
+        font-size: 1.7rem;
+    }
+    .blog-heading-3 {
+        font-size: 1.6rem;
+    }
+    .blog-paragraph {
+        font-size: 1.6rem;
+    }
+    .blog-italic {
+        font-size: 1.6rem;
+    }
+    .blog-link {
+        font-size: 1.6rem;
+    }
+    .blog-image-container {}
+    .blog-video-container {}
+    .blog-iframe-container {}
+    .blog-audio-container {}
+    .blog-image {}
+    .blog-video {}
+    .blog-iframe {}
+    .blog-audio {}
+    .blog-ordered-list li,
+    .blog-unordered-list li{
+        font-size: 1.4rem;
+    }
+    .blog-button-container {}
+    .blog-button {
+        font-size: 1.5rem;
+    }
+    .blog-footer {}
+        }
+          /* ===================== Mobile Responsive Styles ===================== */
+@media (max-width: 768px) {
+
+  /* Keep header fixed in mobile too */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--bg-color);
+    z-index: 1000;
+  }
+
+  /* Add top padding to body so content doesn't hide under fixed header */
+  body {
+    padding-top: 0px; /* matches header height */
+  }
+
+  /* Show menu icon */
+  #menu-icon {
+    display: block;
+    color: var(--main-color);
+    cursor: pointer;
+    z-index: 1010;
+  }
+
+  /* Hide original navbar on mobile */
+  header nav {
+    display: none;
+  }
+
+  /* Fullscreen menu overlay */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.4s ease;
+  }
+
+  .mobile-nav.active {
+    right: 0;
+  }
+
+  .mobile-nav .mobone{
+    font-size: 2.4rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    margin: 1.5rem 0;
+    font-weight: 700;
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+
+  .mobile-nav a {
+    font-size: 2.4rem;
+    color: var(--main-color);
+    margin: 1.5rem 0;
+    font-weight: 700;
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+
+  .mobile-nav a:hover, .mobone {
+    background: var(--main-color);
+    color: var(--bg-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 1rem var(--main-color);
+  }  
+}
+  /*================================= Footer ============================*/
+/* Footer Container */
+.footer-bar {
+    width: 100%;
+    margin: 30px auto;
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+/* Text Styling */
+.footer-bar h1 {
+    color: var(--main-color);
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+   .footer-bar .rightfooter{
+    font-size: 1.5rem;
+   }
+
+
+/* Verified Badge */
+.footer-bar .verified-icon {
+    width: 17px;
+    height: 17px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-bar {
+        width: 100%;
+        /*flex-direction: column;*/
+        text-align: center;
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+    .footer-bar h1{
+      font-size: 1.5rem;
+    }
+   .footer-bar .rightfooter{
+      font-size: 1.3rem;
+    }
+    #second{
+      display: none;
+    }
+    body{
+        width: 95%;
+    }
+}/* Author Section Styles (only 2 theme colors) */
+.author-section {
+  display: flex;
+  justify-content: left;
+  /*padding: 20px;*/
+  background: var(--bg-color);
+}
+
+.author-card {
+  display: flex;
+  align-items: center;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 12px;
+  padding: 15px 20px;
+}
+
+.author-card .author-img {
+  flex-shrink: 0;
+  margin-right: 15px;
+}
+
+.author-card .author-img img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid var(--main-color);
+  object-fit: cover;
+}
+
+.author-card .author-info {
+  color: var(--main-color);
+}
+
+.author-card .author-info .author-name {
+  font-size: 2rem;
+  font-weight: bold;
+  /*margin-bottom: 5px;*/
+}
+
+.author-card .author-info .author-desc {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+
+@media (max-width: 768px) {
+
+
+/* Author Section Styles (only 2 theme colors) */
+.author-section {
+  display: flex;
+  justify-content: left;
+  /*padding: 20px;*/
+  background: var(--bg-color);
+}
+
+.author-card {
+  display: flex;
+  align-items: center;
+  background: var(--bg-color);
+  border: 1px solid var(--main-color);
+  border-radius: 12px;
+  padding: 15px 20px;
+}
+
+.author-card .author-img {
+  flex-shrink: 0;
+  margin-right: 15px;
+}
+
+.author-card .author-img img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid var(--main-color);
+  object-fit: cover;
+}
+
+.author-card .author-info {
+  color: var(--main-color);
+}
+
+.author-card .author-info .author-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: -3px;
+}
+
+.author-card .author-info .author-desc {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+}
+
+.publishdate{
+    color: #3CFF15;
+    font-size: 1.5rem;
+    text-align: right;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+    .publishdate{
+    color: #3CFF15;
+    font-size: 1.2rem;
+    text-align: right;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+}
+
+    </style>
+</head>
+<body>
+    <!-- -------------------------------------------header ----------------------------------------->
+<header>
+  <a href="#" class="logo">Portfolio.</a>
+  <i class='bx  bx-menu' id="menu-icon" ></i> 
+  <nav>
+    <a href="index.html" >Home</a>
+    <a href="About.html">About</a>
+    <a href="Projects.html">Projects</a>
+    <a href="Blogs.html">Blog</a>
+    <a href="Contact.html">Contact</a>
+  </nav>
+</header>
+
+
+<!-- Mobile Nav (hidden by default) -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" >Home</a>
+  <a href="About.html" >About</a>
+  <a href="Projects.html">Projects</a>
+  <a href="Blogs.html">Blog</a>
+  <a href="Contact.html">Contact</a>
+</div>
+    <article class="blog-content">
+            <h1 class="blog-title">🌱 My Summer Project: Building My Personal Portfolio Website.</h1>
+    <div class="blog-image-container">
+        <img src="https://www.jibranzada.com/Media/Screenshot.png" alt="Blog image" class="blog-image">
+    </div>
+    <p class="blog-paragraph">When my first semester ended, I had a lot of free time during the summer break. While most people think of summer vacation as a chance to relax, for me it felt like the perfect time to try something new and actually build something that would last. I wanted to create a project that not only improved my skills but also became a part of my personal growth journey. That’s when I decided to build my own personal portfolio website from scratch.<br><br>I still remember the excitement of opening my editor, starting with a blank HTML file, and thinking: “This is going to be my space on the internet.”</p>
+    <h2 class="blog-heading">Why I Decided to Build It</h2>
+    <p class="blog-paragraph">As a student, it’s easy to just go with classes, assignments, and exams without really creating something for yourself. But I didn’t want to wait until the end of my degree to show what I can do. I wanted to make something early — something that represented me, my projects, my growth, and even my thoughts.<br><br>Also, there’s something special about having your own corner on the internet. A personal<br>website feels like your digital home — where people can come in, learn about you, and see what you’ve been working on.</p>
+    <h2 class="blog-heading">Starting Out: Clean, Simple, and “Hacker Vibes”</h2>
+    <p class="blog-paragraph">I wanted my website to feel unique, not like another template-based portfolio. That’s why I went with a green-on-black theme — kind of like hacker vibes. It reminded me of those classic terminal screens, but I made sure to keep it clean and modern.<br><br>The idea was simple:</p>
+    <ul class="blog-unordered-list">
+        <li>Green text, black background</li>
+        <li>Minimal clutter</li>
+        <li>A smooth, futuristic feel</li>
+    </ul>
+    <p class="blog-paragraph">It wasn’t just about design; it also represented the way I see myself: someone who loves<br>simplicity but also enjoys a touch of creativity.</p>
+    <h2 class="blog-heading">Building Step by Step</h2>
+    <p class="blog-paragraph">Since this was my first big personal web project, I kept things simple but focused on learning. I didn’t use any fancy frameworks — just HTML, CSS, and JavaScript. Every line of code was written by me.<br><br>I set up a GitHub repo from the start so I could track my progress and push updates as I went. This was a game-changer because it helped me practice using Git properly and also gave me a nice timeline of my journey.<br><br>The site structure grew slowly:</p>
+    <ul class="blog-unordered-list">
+        <li>Home Page – A hero section with a bold intro and a welcoming vibe.</li>
+        <li>About Page – More detailed personal information, my story, and what I’m learning.</li>
+        <li>Projects Page – A card-style layout where I can upload and showcase my projects.</li>
+        <li>Blogs Page – A section where I can share my thoughts, experiences, and writing.</li>
+        <li>Contact Page – With a working form that directly sends messages to my email, plussocial links.</li>
+    </ul>
+    <p class="blog-paragraph">I even made sure everything was responsive, so it works across devices. I didn’t want it to look broken on mobile, and testing it on my phone felt super rewarding.</p>
+    <h2 class="blog-heading">Making It Feel Dynamic</h2>
+    <p class="blog-paragraph">Even though it’s technically a static website, I didn’t want it to feel lifeless. That’s why I added features that make it feel more alive:</p>
+    <ul class="blog-unordered-list">
+        <li>A blog section where I can keep posting new writings as I grow.</li>
+        <li>A projects section where I can update my work over time.</li>
+        <li>Some interactive scripts in JavaScript that add small effects and details.</li>
+    </ul>
+    <p class="blog-paragraph">This way, the website is always a “living project.” It grows as I grow.</p>
+    <h2 class="blog-heading">Features</h2>
+    <p class="blog-paragraph">Here are some highlights of the site:</p>
+    <ol class="blog-ordered-list">
+        <li>Clean UI – Everything looks neat and organized. No messy design.</li>
+        <li>Green-on-black theme – A unique style that feels hacker-ish but modern.</li>
+        <li>Responsive design – Works across desktops, tablets, and mobiles.</li>
+        <li>Contact form – Not just a dummy form — it actually sends data to my email.</li>
+        <li>Projects &amp; Blogs – Easy to update and expand as I move forward.</li>
+        <li>Cross-platform optimization – Tested to look good everywhere.</li>
+    </ol>
+    <p class="blog-paragraph">It might sound simple, but for me, each feature was an achievement because I built it all myself.</p>
+    <h2 class="blog-heading">Beyond Just Code</h2>
+    <p class="blog-paragraph">Of course, it wasn’t all technical. The project also had a personal side:</p>
+    <ul class="blog-unordered-list">
+        <li>Discipline: Working on the site during summer required me to stay consistent.</li>
+        <li>Creativity: Thinking about design choices and user experience pushed me to be morecreative.</li>
+        <li>Ownership: This wasn’t an assignment or group work — it was mine. Every success andmistake was my responsibility.</li>
+    </ul>
+    <p class="blog-paragraph">It gave me a sense of ownership that I hadn’t felt before with school projects.</p>
+    <h2 class="blog-heading">Final Thoughts</h2>
+    <p class="blog-paragraph">When I started this project, I just wanted to fill my summer with something useful. But what I ended up creating is much more than just a static site. It’s a reflection of me — my skills, my creativity, and my journey as a student who wants to grow.<br><br>Having a personal portfolio website might seem small, but for me, it’s huge. It’s proof that with some time, focus, and curiosity, you can build something meaningful.<br><br>And the best part? This is just the beginning.</p>
+    <h3 class="blog-heading-2">So yeah, this was my summer project after my first semester — building
+jibranzada.com. It’s not perfect, but it’s mine. And I can’t wait to keep making it better.</h3>
+    <div class="blog-button-container">
+        <a href="https://jibranzada.com" target="_blank" rel="noopener" class="blog-button">Jibranzada.com</a>
+    </div>
+
+    </article>
+    <p class="publishdate">Published on 10/4/2025</p>
+
+        <!-- =======================================Author Section========================================= -->
+<section class="author-section">
+  <div class="author-card">
+    <div class="author-img">
+      <img src="https://www.jibranzada.com/Admin/Jibran.png" alt="M Jibran Zada">
+    </div>
+    <div class="author-info">
+      <h3 class="author-name">M Jibran Zada</h3>
+      <p class="author-desc">I share Cybersecurity news, insights, and bits of my learning journey.</p>
+    </div>
+  </div>
+</section>
+<!-- =================================== Footer ============================ -->
+<footer class="footer-bar">
+    <h1>
+        Jibran
+        <!-- Inline SVG Verified Badge -->
+        <svg class="verified-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--main-color)" width="20" height="20">
+    <circle cx="12" cy="12" r="11" stroke="var(--main-color)" stroke-width="2" fill="none"/>
+    <path fill="var(--main-color)" d="M10.0 15.2l-3.2-3.2 1.4-1.4 1.8 1.8 4.8-4.8 1.4 1.4z"/>
+</svg>
+
+    </h1>
+    <div></div> <!-- Empty middle space -->
+    <h1 class="rightfooter">All rights reserved 2025</h1>
+</footer>
+<!--     <footer class="blog-footer">
+        <p>Published by Muhammad Jibran Zada</p>
+        <p>Generated on {{CURRENT_DATE}} • Secured with SHA-256</p>
+    </footer> -->
+    <script>
+        // ======================== Navbar Animation =================================
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll("header nav a");
+  navLinks.forEach(link => link.classList.add("nav-hidden"));
+  navLinks.forEach((link, index) => {
+    setTimeout(() => link.classList.add("nav-reveal"), 300 + index * 200);
+  });
+});
+
+// Toggle mobile menu
+document.addEventListener("DOMContentLoaded", () => {
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileNav = document.getElementById("mobileNav");
+  menuIcon.addEventListener("click", () => mobileNav.classList.toggle("active"));
+  mobileNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => mobileNav.classList.remove("active"));
+  });
+});
+
+    </script>
+</body>
+</html>
