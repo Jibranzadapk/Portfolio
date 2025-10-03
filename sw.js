@@ -1,8 +1,9 @@
 // sw.js
-const CACHE_NAME = "jibran-cache-v1";
+const CACHE_NAME = "jibran-cache-v2";
 
 // List of files to cache
 const ASSETS = [
+  // ✅ All HTML pages
   "/",
   "/index.html",
   "/About.html",
@@ -12,7 +13,7 @@ const ASSETS = [
   "/Projects.html",
   "/404.html",
 
-  // CSS
+  // ✅ CSS files
   "/CSS/style.css",
   "/CSS/about.css",
   "/CSS/blog.css",
@@ -21,7 +22,7 @@ const ASSETS = [
   "/CSS/projects.css",
   "/CSS/404.css",
 
-  // JS
+  // ✅ JS files
   "/JS/script.js",
   "/JS/about.js",
   "/JS/blog.js",
@@ -31,30 +32,34 @@ const ASSETS = [
   "/JS/404.js",
   "/JS/lowpoly.js",
 
-  // Media (add more if you want ALL images/videos cached)
+  // ✅ Media files (all important images & video)
+  "/Media/globe-3.mp4",
+  "/Media/ICD.png",
+  "/Media/Jibran-Zada.png",
   "/Media/Jibran.png",
   "/Media/JibranZada.png",
+  "/Media/navttc.png",
+  "/Media/pro.png",
   "/Media/sample.jpg",
-  "/Media/globe-3.mp4",
 ];
 
-// Install event = cache all files
+// Install event = cache all listed files
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
   );
 });
 
-// Fetch event = serve from cache first, then network
+// Fetch event = serve from cache first, then network if not found
 self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then(res => {
-      return res || fetch(event.request);
+    caches.match(event.request).then(cachedResponse => {
+      return cachedResponse || fetch(event.request);
     })
   );
 });
 
-// Activate event = remove old caches when updating
+// Activate event = remove old cache versions
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys().then(keys =>
