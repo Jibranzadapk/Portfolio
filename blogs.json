@@ -8,12 +8,12 @@
     "link": "/b/How-i-used-my-summer-to-build-something-i-m-proud-of-❤%EF%B8%8F.html",
     "featured": true
   },
-  {
-   "title": "Learning C++ Offline: My Journey into Depth 📘",
-    "description": "Why I chose to dive into C++ using offline methods and physical books — a reflection on slow, deep learning.",
-    "category": "Programming",
-    "date": "8 October 2025",
-    "thumbnail": "https://picsum.photos/id/1025/400/250",
-    "link": "/b/learning-cpp-offline.html"
-  }
+  // {
+  //  "title": "Learning C++ Offline: My Journey into Depth 📘",
+  //   "description": "Why I chose to dive into C++ using offline methods and physical books — a reflection on slow, deep learning.",
+  //   "category": "Programming",
+  //   "date": "8 October 2025",
+  //   "thumbnail": "https://picsum.photos/id/1025/400/250",
+  //   "link": "/b/learning-cpp-offline.html"
+  // }
 ]
