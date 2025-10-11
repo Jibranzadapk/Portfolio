@@ -1,165 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatibe" content="IE-edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-<link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
-<link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
-<title>Blogs</title>
-<link rel="stylesheet" type="text/css" href="CSS/blog.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs | Jibran Zada</title>
+  <link rel="stylesheet" href="CSS/blog.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- -------------------------------------------header ----------------------------------------->
-<header>
-  <a href="#" class="logo">Portfolio.</a>
-  <i class='bx  bx-menu' id="menu-icon" ></i> 
-  <nav>
-    <a href="index.html" >Home</a>
-    <a href="About.html">About</a>
-    <a href="Projects.html">Projects</a>
-    <a href="Blogs.html"class="home">Blog</a>
-    <a href="Contact.html">Contact</a>
-  </nav>
-</header>
 
+  <!-- =================== HEADER =================== -->
+  <header>
+    <a href="index.html" class="logo">JibranZada</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="blogs.html" class="home">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <i class="fa-solid fa-bars" id="menu-icon"></i>
+  </header>
 
-<!-- Mobile Nav (hidden by default) -->
-<div class="mobile-nav" id="mobileNav">
-  <a href="index.html" >Home</a>
-  <a href="About.html" >About</a>
-  <a href="Projects.html">Projects</a>
-  <a href="Blogs.html"class="mobone">Blog</a>
-  <a href="Contact.html">Contact</a>
-</div>
+  <!-- Mobile Menu -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="blogs.html" class="mobone">Blogs</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
-<!-- ===================================== Blogs ==================================== -->
-<div class="container">
-  
-<!-- Page Heading -->
-<h1 class="page-title">Blogs</h1>
+  <!-- =================== PAGE TITLE =================== -->
+  <h1 class="page-title glow">Blogs & Articles</h1>
 
-<!-- Blog Page -->
-<section class="blog-page">
+  <!-- =================== BLOG SECTION =================== -->
+  <section class="container">
+
+    <div class="sort-buttons">
+      <button class="active" onclick="filterBlogs('all', event)">All</button>
+      <button onclick="filterBlogs('tech', event)">Tech</button>
+      <button onclick="filterBlogs('life', event)">Life</button>
+      <button onclick="filterBlogs('education', event)">Education</button>
+    </div>
+
     <!-- Featured Blog -->
-    <div class="featured-blog">
-        <img src="https://picsum.photos/id/1011/800/400" alt="Featured Blog">
-        <div class="featured-overlay">
-            <div class="meta"><i class="fa-solid fa-calendar"></i> Feb 5, 2025 | <i class="fa-solid fa-code"></i> Cybersecurity</div>
-            <h2>Top 10 Ethical Hacking Tools You Must Know</h2>
-            <p>Explore the most essential ethical hacking tools used by security professionals worldwide to safeguard networks and systems.</p>
-            <a href="blog-security1.html"><i class="fa-solid fa-arrow-right"></i> Read More</a>
-        </div>
+    <div id="featuredBlog" class="featured-blog">
+      <img src="https://via.placeholder.com/800x400" alt="Featured Blog">
+      <div class="featured-overlay">
+        <p class="meta">Featured Blog</p>
+        <h2>Loading...</h2>
+        <p>Stay tuned for the latest updates and articles!</p>
+        <a href="#">Read More</a>
+      </div>
     </div>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <h3>Latest Posts</h3>
-        <div class="latest-post" onclick="location.href='blog-security1.html'">
-            <img src="https://picsum.photos/id/1005/100" alt="Post">
-            <p><i class="fa-solid fa-bug"></i> Web App Vulnerability Testing</p>
-        </div>
-        <div class="latest-post" onclick="location.href='blog-linux1.html'">
-            <img src="https://picsum.photos/id/1006/100" alt="Post">
-            <p><i class="fa-solid fa-lock"></i> Linux Security Hardening</p>
-        </div>
-        <div class="latest-post" onclick="location.href='blog-network1.html'">
-            <img src="https://picsum.photos/id/1008/100" alt="Post">
-            <p><i class="fa-solid fa-network-wired"></i> Networking Basics</p>
-        </div>
-    </aside>
-</section>
+    <!-- All Blogs Grid -->
+    <section class="all-blogs">
+      <h2>All Blogs</h2>
+      <div id="blogGrid" class="blog-grid">
+        <!-- Blog cards will load here from JSON -->
+      </div>
+    </section>
+  </section>
 
-<!-- Sort Buttons -->
-<div class="sort-buttons">
-    <button class="active" onclick="filterBlogs('all')">All</button>
-    <button onclick="filterBlogs('security')">Security</button>
-    <button onclick="filterBlogs('linux')">Linux</button>
-    <button onclick="filterBlogs('networking')">Networking</button>
-    <button onclick="filterBlogs('cloud')">Cloud</button>
-</div>
+  <!-- =================== FOOTER =================== -->
+  <footer class="footer-bar">
+    <h1><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Green_check.svg" class="verified-icon"> Jibran Zada</h1>
+    <div class="rightfooter">© 2025 All rights reserved</div>
+  </footer>
 
-<section class="all-blogs">
-    <h2 class="glow">All Blogs</h2>
-    <div class="blog-grid" id="blogGrid">
-
-        <div class="blog-card" data-category="security">
-            <img src="https://picsum.photos/id/1015/300/200" alt="Blog">
-            <div class="blog-content">
-                <div class="blog-meta"><i class="fa-solid fa-calendar"></i> Jan 28, 2025 | Security</div>
-                <h3>Beginner’s Guide to Network Security</h3>
-                <p>Learn how to secure your networks from cyber threats with easy steps.</p>
-                <a class="read-more-btn" href="blog-security2.html">Read More</a>
-            </div>
-        </div>
-
-        <div class="blog-card" data-category="linux">
-            <img src="https://picsum.photos/id/1019/300/200" alt="Blog">
-            <div class="blog-content">
-                <div class="blog-meta"><i class="fa-solid fa-calendar"></i> Jan 22, 2025 | Linux</div>
-                <h3>10 Linux Commands Every Hacker Should Know</h3>
-                <p>Master powerful Linux commands to boost your hacking skills.</p>
-                <a class="read-more-btn" href="blog-linux1.html">Read More</a>
-            </div>
-        </div>
-
-        <div class="blog-card" data-category="cloud">
-            <img src="https://picsum.photos/id/1024/300/200" alt="Blog">
-            <div class="blog-content">
-                <div class="blog-meta"><i class="fa-solid fa-calendar"></i> Jan 15, 2025 | Cloud</div>
-                <h3>Securing Data in the Cloud</h3>
-                <p>Protect cloud data with these security best practices.</p>
-                <a class="read-more-btn" href="blog-cloud1.html">Read More</a>
-            </div>
-        </div>
-
-        <div class="blog-card" data-category="networking">
-            <img src="https://picsum.photos/id/1025/300/200" alt="Blog">
-            <div class="blog-content">
-                <div class="blog-meta"><i class="fa-solid fa-calendar"></i> Jan 10, 2025 | Networking</div>
-                <h3>Understanding IP Addressing</h3>
-                <p>Deep dive into IP addressing and subnetting.</p>
-                <a class="read-more-btn" href="blog-network1.html">Read More</a>
-            </div>
-        </div>
-
-
-    </div>
-</section>
-</div>
-
-
-<!-- =================================== Footer ============================ -->
-<footer class="footer-bar">
-    <h1>
-        Jibran
-        <!-- Inline SVG Verified Badge -->
-        <svg class="verified-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--main-color)" width="20" height="20">
-    <circle cx="12" cy="12" r="11" stroke="var(--main-color)" stroke-width="2" fill="none"/>
-    <path fill="var(--main-color)" d="M10.0 15.2l-3.2-3.2 1.4-1.4 1.8 1.8 4.8-4.8 1.4 1.4z"/>
-</svg>
-
-    </h1>
-    <div></div> <!-- Empty middle space -->
-    <h1 class="rightfooter">All rights reserved 2025</h1>
-</footer>
-
-<script src="JS/blog.js"></script>
-<!-- JSON-LD Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Jibran Zada",
-  "url": "https://www.jibranzada.com/",
-  "jobTitle": "Cybersecurity Enthusiast"
-}
-</script>
+  <script src="https://kit.fontawesome.com/a2e0f1f3d7.js" crossorigin="anonymous"></script>
+  <script src="JS/blog.js"></script>
 </body>
 </html>
