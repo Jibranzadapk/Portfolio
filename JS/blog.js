@@ -1,98 +1,103 @@
-// ======================== Navbar Animation =================================
+// JS/blog.js
+
 document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll("header nav a");
-
-  navLinks.forEach(link => link.classList.add("nav-hidden"));
-
-  navLinks.forEach((link, index) => {
-    setTimeout(() => {
-      link.classList.add("nav-reveal");
-    }, 300 + index * 200); // staggered animation
-  });
-});
-
-// ======================== Mobile Menu Toggle =================================
-document.addEventListener("DOMContentLoaded", () => {
-  const menuIcon = document.getElementById("menu-icon");
-  const mobileNav = document.getElementById("mobileNav");
-
-  menuIcon.addEventListener("click", () => {
-    mobileNav.classList.toggle("active");
-  });
-
-  mobileNav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      mobileNav.classList.remove("active");
-    });
-  });
-});
-
-// ======================== Blogs Dynamic Load =================================
-
-// JSON file containing all blog data
-const BLOGS_JSON_PATH = "blogs.json";
-
-// Fetch and render blogs
-document.addEventListener("DOMContentLoaded", async () => {
   const blogGrid = document.getElementById("blogGrid");
-  const featured = document.getElementById("featuredBlog");
+  const featuredBlog = document.getElementById("featuredBlog");
+  const latestPosts = document.getElementById("latestPosts");
+  const categoryButtons = document.getElementById("categoryButtons");
 
-  try {
-    const response = await fetch(BLOGS_JSON_PATH);
-    const blogs = await response.json();
+  fetch("/blogs.json")
+    .then(response => {
+      if (!response.ok) throw new Error("Failed to fetch blogs.json");
+      return response.json();
+    })
+    .then(blogs => {
+      if (!Array.isArray(blogs) || blogs.length === 0) {
+        blogGrid.innerHTML = "<p style='color:gray;'>No blogs found.</p>";
+        return;
+      }
 
-    if (!Array.isArray(blogs) || blogs.length === 0) {
-      blogGrid.innerHTML = "<p>No blogs available yet.</p>";
-      return;
-    }
-
-    // Pick the most recent or marked featured blog
-    const featuredBlog = blogs.find(b => b.featured) || blogs[0];
-
-    // Render featured blog
-    featured.innerHTML = `
-      <img src="${featuredBlog.thumbnail}" alt="${featuredBlog.title}">
-      <div class="featured-overlay">
-        <p class="meta">${featuredBlog.category}</p>
-        <h2>${featuredBlog.title}</h2>
-        <p>${featuredBlog.description}</p>
-        <a href="${featuredBlog.link}">Read More</a>
-      </div>
-    `;
-
-    // Render all blogs in grid
-    blogGrid.innerHTML = blogs
-      .map(blog => `
-        <div class="blog-card" data-category="${blog.category}">
-          <img src="${blog.thumbnail}" alt="${blog.title}">
-          <div class="blog-content">
-            <p class="blog-meta">${blog.category} • ${blog.date}</p>
-            <h3>${blog.title}</h3>
-            <p>${blog.description}</p>
-            <a class="read-more-btn" href="${blog.link}">Read More</a>
+      // ---- Featured Blog ----
+      const featured = blogs.find(b => b.featured) || blogs[0];
+      featuredBlog.innerHTML = `
+        <img src="${featured.thumbnail}" alt="${featured.title}">
+        <div class="featured-overlay">
+          <div class="meta">
+            <i class="fa-solid fa-calendar"></i> ${featured.date} | 
+            <i class="fa-solid fa-tag"></i> ${featured.category}
           </div>
+          <h2>${featured.title}</h2>
+          <p>${featured.description}</p>
+          <a href="${featured.link}"><i class="fa-solid fa-arrow-right"></i> Read More</a>
         </div>
-      `)
-      .join("");
-  } catch (error) {
-    console.error("Error loading blogs:", error);
-    blogGrid.innerHTML = "<p>Failed to load blogs. Please try again later.</p>";
-  }
+      `;
+
+      // ---- Latest Posts (Sidebar) ----
+      const latest = blogs.slice(0, 3);
+      latestPosts.innerHTML = latest
+        .map(
+          blog => `
+        <div class="latest-post" onclick="location.href='${blog.link}'">
+          <img src="${blog.thumbnail}" alt="${blog.title}">
+          <p><i class="fa-solid fa-book"></i> ${blog.title}</p>
+        </div>`
+        )
+        .join("");
+
+      // ---- Categories ----
+      const categories = [...new Set(blogs.map(b => b.category))];
+      categories.forEach(cat => {
+        const btn = document.createElement("button");
+        btn.textContent = cat;
+        btn.onclick = () => filterBlogs(cat);
+        categoryButtons.appendChild(btn);
+      });
+
+      // ---- All Blogs ----
+      displayBlogs(blogs);
+
+      // ---- Filtering Function ----
+      window.filterBlogs = function (category) {
+        document
+          .querySelectorAll(".sort-buttons button")
+          .forEach(b => b.classList.remove("active"));
+        event.target.classList.add("active");
+
+        if (category === "all") {
+          displayBlogs(blogs);
+        } else {
+          const filtered = blogs.filter(b => b.category === category);
+          displayBlogs(filtered);
+        }
+      };
+
+      // ---- Display Blogs Function ----
+      function displayBlogs(list) {
+        if (list.length === 0) {
+          blogGrid.innerHTML = "<p style='color:gray;'>No blogs available in this category.</p>";
+          return;
+        }
+
+        blogGrid.innerHTML = list
+          .map(
+            blog => `
+          <div class="blog-card" data-category="${blog.category}">
+            <img src="${blog.thumbnail}" alt="${blog.title}">
+            <div class="blog-content">
+              <div class="blog-meta"><i class="fa-solid fa-calendar"></i> ${blog.date} | ${blog.category}</div>
+              <h3>${blog.title}</h3>
+              <p>${blog.description}</p>
+              <a class="read-more-btn" href="${blog.link}">Read More</a>
+            </div>
+          </div>`
+          )
+          .join("");
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      blogGrid.innerHTML = "<p style='color:red;'>Failed to load blogs. Please try again later.</p>";
+      featuredBlog.innerHTML = "<p style='color:red;'>Error loading featured blog.</p>";
+      latestPosts.innerHTML = "<p style='color:red;'>Error loading latest posts.</p>";
+    });
 });
-
-// ======================== Blog Filter =================================
-function filterBlogs(category, event) {
-  const cards = document.querySelectorAll(".blog-card");
-  const buttons = document.querySelectorAll(".sort-buttons button");
-
-  buttons.forEach(btn => btn.classList.remove("active"));
-  event.target.classList.add("active");
-
-  cards.forEach(card => {
-    if (category === "all" || card.dataset.category === category) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
-}
