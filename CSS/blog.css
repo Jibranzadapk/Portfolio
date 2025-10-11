@@ -653,25 +653,18 @@ body {
   overflow-y: auto;
   padding-right: 5px;
 }
+/* Hide scrollbar but keep scroll functionality */
+#latestPosts {
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
 
-/* Optional: Make scrollbar look clean */
-.sidebar .latest-blogs::-webkit-scrollbar {
-  width: 6px;
-}
-.sidebar .latest-blogs::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-}
-.sidebar .latest-blogs::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.4);
-}
 #latestPosts::-webkit-scrollbar {
-  width: 6px;
+  display: none; /* For Chrome, Safari, and Opera */
 }
-#latestPosts::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
+#latestPosts {
+  scroll-behavior: smooth;
 }
-#latestPosts::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.4);
-}
+
