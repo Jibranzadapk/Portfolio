@@ -1,76 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blogs | Jibran Zada</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blogs | Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+  <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="CSS/blog.css">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- =================== HEADER =================== -->
+  <!-- Header -->
   <header>
-    <a href="index.html" class="logo">JibranZada</a>
+    <a href="#" class="logo">Portfolio.</a>
+    <i class='bx bx-menu' id="menu-icon"></i>
     <nav>
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="blogs.html" class="home">Blogs</a>
-      <a href="contact.html">Contact</a>
+      <a href="About.html">About</a>
+      <a href="Projects.html">Projects</a>
+      <a href="Blogs.html" class="home">Blog</a>
+      <a href="Contact.html">Contact</a>
     </nav>
-    <i class="fa-solid fa-bars" id="menu-icon"></i>
   </header>
 
-  <!-- Mobile Menu -->
+  <!-- Mobile Nav -->
   <div class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="blogs.html" class="mobone">Blogs</a>
-    <a href="contact.html">Contact</a>
+    <a href="About.html">About</a>
+    <a href="Projects.html">Projects</a>
+    <a href="Blogs.html" class="mobone">Blog</a>
+    <a href="Contact.html">Contact</a>
   </div>
 
-  <!-- =================== PAGE TITLE =================== -->
-  <h1 class="page-title glow">Blogs & Articles</h1>
+  <!-- ==================== Blog Section ===================== -->
+  <div class="container">
+    <h1 class="page-title">Blogs</h1>
 
-  <!-- =================== BLOG SECTION =================== -->
-  <section class="container">
-
-    <div class="sort-buttons">
-      <button class="active" onclick="filterBlogs('all', event)">All</button>
-      <button onclick="filterBlogs('tech', event)">Tech</button>
-      <button onclick="filterBlogs('life', event)">Life</button>
-      <button onclick="filterBlogs('education', event)">Education</button>
-    </div>
-
-    <!-- Featured Blog -->
-    <div id="featuredBlog" class="featured-blog">
-      <img src="https://via.placeholder.com/800x400" alt="Featured Blog">
-      <div class="featured-overlay">
-        <p class="meta">Featured Blog</p>
-        <h2>Loading...</h2>
-        <p>Stay tuned for the latest updates and articles!</p>
-        <a href="#">Read More</a>
+    <section class="blog-page">
+      <!-- Featured Blog -->
+      <div class="featured-blog" id="featuredBlog">
+        <!-- Populated by JS -->
+        <p style="text-align:center; color:gray;">Loading featured blog...</p>
       </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h3>Latest Posts</h3>
+        <div id="latestPosts">
+          <p style="text-align:center; color:gray;">Loading latest posts...</p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Category Buttons -->
+    <div class="sort-buttons" id="categoryButtons">
+      <button class="active" onclick="filterBlogs('all')">All</button>
     </div>
 
-    <!-- All Blogs Grid -->
+    <!-- All Blogs Section -->
     <section class="all-blogs">
-      <h2>All Blogs</h2>
-      <div id="blogGrid" class="blog-grid">
-        <!-- Blog cards will load here from JSON -->
+      <h2 class="glow">All Blogs</h2>
+      <div class="blog-grid" id="blogGrid">
+        <p style="text-align:center; color:gray;">Loading blogs...</p>
       </div>
     </section>
-  </section>
+  </div>
 
-  <!-- =================== FOOTER =================== -->
+  <!-- ==================== Footer ===================== -->
   <footer class="footer-bar">
-    <h1><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Green_check.svg" class="verified-icon"> Jibran Zada</h1>
-    <div class="rightfooter">© 2025 All rights reserved</div>
+    <h1>
+      Jibran
+      <svg class="verified-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--main-color)" width="20" height="20">
+        <circle cx="12" cy="12" r="11" stroke="var(--main-color)" stroke-width="2" fill="none"/>
+        <path fill="var(--main-color)" d="M10.0 15.2l-3.2-3.2 1.4-1.4 1.8 1.8 4.8-4.8 1.4 1.4z"/>
+      </svg>
+    </h1>
+    <div></div>
+    <h1 class="rightfooter">All rights reserved 2025</h1>
   </footer>
 
-  <script src="https://kit.fontawesome.com/a2e0f1f3d7.js" crossorigin="anonymous"></script>
+  <!-- Scripts -->
   <script src="JS/blog.js"></script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jibran Zada",
+    "url": "https://www.jibranzada.com/",
+    "jobTitle": "Cybersecurity Enthusiast"
+  }
+  </script>
 </body>
 </html>
