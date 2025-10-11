@@ -1,5 +1,33 @@
-// JS/blog.js
+// ======================== Navbar Animation =================================
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll("header nav a");
 
+  navLinks.forEach(link => link.classList.add("nav-hidden"));
+
+  navLinks.forEach((link, index) => {
+    setTimeout(() => {
+      link.classList.add("nav-reveal");
+    }, 300 + index * 200); // staggered animation
+  });
+});
+
+// ======================== Mobile Menu Toggle =================================
+document.addEventListener("DOMContentLoaded", () => {
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileNav = document.getElementById("mobileNav");
+
+  menuIcon.addEventListener("click", () => {
+    mobileNav.classList.toggle("active");
+  });
+
+  mobileNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileNav.classList.remove("active");
+    });
+  });
+});
+
+// ======================== Blogs Dynamic Section =================================
 document.addEventListener("DOMContentLoaded", () => {
   const blogGrid = document.getElementById("blogGrid");
   const featuredBlog = document.getElementById("featuredBlog");
@@ -17,6 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      // ---- Sort by Date (newest first) ----
+      blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
+
       // ---- Featured Blog ----
       const featured = blogs.find(b => b.featured) || blogs[0];
       featuredBlog.innerHTML = `
@@ -33,43 +64,40 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
 
       // ---- Latest Posts (Sidebar) ----
-      const latest = blogs.slice(0, 3);
-      latestPosts.innerHTML = latest
-        .map(
-          blog => `
-        <div class="latest-post" onclick="location.href='${blog.link}'">
+      latestPosts.innerHTML = "";
+      blogs.forEach(blog => {
+        const postDiv = document.createElement("div");
+        postDiv.classList.add("latest-post");
+        postDiv.innerHTML = `
           <img src="${blog.thumbnail}" alt="${blog.title}">
           <p><i class="fa-solid fa-book"></i> ${blog.title}</p>
-        </div>`
-        )
-        .join("");
+        `;
+        postDiv.addEventListener("click", () => {
+          location.href = blog.link;
+        });
+        latestPosts.appendChild(postDiv);
+      });
+
+      // ---- Make Latest Posts Scrollable ----
+      latestPosts.style.maxHeight = "400px";
+      latestPosts.style.overflowY = "auto";
+      latestPosts.style.paddingRight = "5px";
 
       // ---- Categories ----
       const categories = [...new Set(blogs.map(b => b.category))];
+      categoryButtons.innerHTML = "";
+      const allBtn = document.createElement("button");
+      allBtn.textContent = "All";
+      allBtn.classList.add("active");
+      allBtn.onclick = () => filterBlogs("all");
+      categoryButtons.appendChild(allBtn);
+
       categories.forEach(cat => {
         const btn = document.createElement("button");
         btn.textContent = cat;
         btn.onclick = () => filterBlogs(cat);
         categoryButtons.appendChild(btn);
       });
-
-      // ---- All Blogs ----
-      displayBlogs(blogs);
-
-      // ---- Filtering Function ----
-      window.filterBlogs = function (category) {
-        document
-          .querySelectorAll(".sort-buttons button")
-          .forEach(b => b.classList.remove("active"));
-        event.target.classList.add("active");
-
-        if (category === "all") {
-          displayBlogs(blogs);
-        } else {
-          const filtered = blogs.filter(b => b.category === category);
-          displayBlogs(filtered);
-        }
-      };
 
       // ---- Display Blogs Function ----
       function displayBlogs(list) {
@@ -93,6 +121,24 @@ document.addEventListener("DOMContentLoaded", () => {
           )
           .join("");
       }
+
+      // ---- Filtering Function ----
+      window.filterBlogs = function (category) {
+        document
+          .querySelectorAll(".sort-buttons button")
+          .forEach(b => b.classList.remove("active"));
+        event.target.classList.add("active");
+
+        if (category === "all") {
+          displayBlogs(blogs);
+        } else {
+          const filtered = blogs.filter(b => b.category === category);
+          displayBlogs(filtered);
+        }
+      };
+
+      // ---- Initial Display ----
+      displayBlogs(blogs);
     })
     .catch(error => {
       console.error(error);
