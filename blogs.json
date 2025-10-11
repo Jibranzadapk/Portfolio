@@ -9,12 +9,11 @@
     "featured": true
   },
   {
-    "title": "How I Used My Summer to Build Something I’m Proud Of ❤️",
-    "description": "A short story of how I turned a small idea into a complete personal website.",
-    "category": "Tech",
-    "date": "25 October 2025",
-    "thumbnail": "/Media/Screenshot.png",
-    "link": "/b/How-i-used-my-summer-to-build-something-i-m-proud-of-❤%EF%B8%8F.html",
-    
+   "title": "Learning C++ Offline: My Journey into Depth 📘",
+    "description": "Why I chose to dive into C++ using offline methods and physical books — a reflection on slow, deep learning.",
+    "category": "Programming",
+    "date": "8 October 2025",
+    "thumbnail": "https://picsum.photos/id/1025/400/250",
+    "link": "/b/learning-cpp-offline.html"
   }
 ]
