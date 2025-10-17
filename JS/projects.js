@@ -60,7 +60,7 @@ cards.forEach(card => {
 document.addEventListener("DOMContentLoaded", () => {
   const projectsGrid = document.querySelector(".projects-grid");
 
-  fetch("blogs.json")
+  fetch("Json/projects.json")
     .then(response => response.json())
     .then(data => {
       // Clear any existing static content
