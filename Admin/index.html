@@ -1,249 +1,1001 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Admin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="admin.css">
-  </head>
-  <body>
-    <!-- Login Section -->
-    <section id="loginsectionadmin" class="activeadmin">
-      <div class="loginboxadmin">
-        <div class="loginheadingadmin">Admin</div>
-        <input type="text" id="usernameadmin" class="logininputadmin" placeholder="Username">
-        <input type="password" id="passwordadmin" class="logininputadmin" placeholder="Password">
-        <button class="loginbtnadmin" onclick="loginadmin()">Login</button>
-      </div>
-      <!-- Popup messages -->
-      <div id="popupadmin" class="popupadmin"></div>
-    </section>
-    <!-- Dashboard Section -->
-    <section id="dashboardsectionadmin">
-      <div class="dashboardheaderadmin">
-        <button class="logoutbtnadmin" onclick="logoutadmin()">
-          <i class="fa-solid fa-right-from-bracket"></i> Logout </button>
-      </div>
-      <div class="dashboardcontentadmin">
-        <div class="dashboardboxadmin" onclick="openBlogadmin()">
-          <i class="fa-solid fa-pen"></i>
-          <div class="dashdiv">Blog</div>
-        </div>
-        <div class="dashboardboxadmin" onclick="openProjectadmin()">
-          <i class="fa-solid fa-code"></i>
-          <div class="dashdiv">Project</div>
-        </div>
-      </div>
-    </section>
-    <!-- Blog Section (pre-coded externally, don’t rename) -->
-    <section id="blogsection" class="sectionpage">
-      <button class="back-btn">
-        <i class="fas fa-arrow-left"></i>
-      </button>
-      <button class="save-btn" id="save-btn">Save</button>
-      <button class="plus-btn" id="plus-btn">
-        <i class="fa-solid fa-plus"></i>
-      </button>
-      <div class="popupblog" id="popupblog">
-        <button data-type="title">Title</button>
-        <button data-type="heading">Heading</button>
-        <button data-type="paragraph">Paragraph</button>
-        <button data-type="heading2">Heading 2</button>
-        <button data-type="heading3">Heading 3</button>
-        <button data-type="link">Link</button>
-        <button data-type="audio">Audio</button>
-        <button data-type="image">Image</button>
-        <button data-type="video">Video</button>
-        <button data-type="customButton">Button</button>
-        <button data-type="listblock">List</button>
-        <button data-type="italic">Italic</button>
-      </div>
-      <template id="template-title">
-        <div class="content-block">
-          <button class="delete-btn">X</button>
-          <textarea placeholder="Enter Title" class="title"></textarea>
-        </div>
-      </template>
-      <template id="template-heading">
-        <div class="content-block">
-          <button class="delete-btn">X</button>
-          <textarea placeholder="Enter Heading" class="heading"></textarea>
-        </div>
-      </template>
-      <template id="template-paragraph">
-        <div class="content-block">
-          <button class="delete-btn">X</button>
-          <textarea placeholder="Enter Paragraph" class="paragraph"></textarea>
-        </div>
-      </template>
-      <template id="template-heading2">
-        <div class="content-block">
-          <button class="delete-btn">X</button>
-          <textarea placeholder="Enter Heading 2" class="heading-two"></textarea>
-        </div>
-      </template>
-      <template id="template-heading3">
-        <div class="content-block">
-          <button class="delete-btn">X</button>
-          <textarea placeholder="Enter Heading 3" class="heading-three"></textarea>
-        </div>
-      </template>
-      <template id="template-link">
-        <div class="content-block">
-          <button class="delete-btn">X</button>
-          <textarea placeholder="Enter Link" class="link"></textarea>
-        </div>
-      </template>
-      <template id="template-audio">
-        <div class="content-block">
-          <button class="delete-btn">X</button>
-          <div class="media-container">
-            <button class="upload-audio">Upload</button>
-            <audio controls></audio>
-          </div>
-        </div>
-      </template>
-      <template id="template-image">
-        <div class="content-block">
-          <button class="delete-btn">X</button>
-          <div class="media-container">
-            <!-- <button class="upload-image">Upload</button> -->
-            <button class="link-image">Link</button>
-          </div>
-        </div>
-      </template>
-      <template id="template-video">
-        <div class="content-block">
-          <button class="delete-btn">X</button>
-          <div class="media-container">
-            <!-- <button class="upload-video">Upload</button> -->
-            <button class="link-video">Link</button>
-          </div>
-        </div>
-      </template>
-      <template id="template-customButton">
-        <div class="content-block">
-          <button class="delete-btn">X</button>
-          <div style="display:flex; align-items:center; gap:10px;">
-            <button class="dynamic-config-btn">+Add</button>
-          </div>
-        </div>
-      </template>
-      <template id="template-listblock">
-        <div class="content-block">
-          <button class="delete-btn">X</button>
-          <div class="list-controls">
-            <button class="count-list-btn">Counting list</button>
-            <button class="bullet-list-btn">Bullet point list</button>
-          </div>
-          <div class="list-area"></div>
-        </div>
-      </template>
-      <template id="template-italic">
-        <div class="content-block">
-          <button class="delete-btn">X</button>
-          <textarea class="italic-textarea" placeholder="Enter italic text"></textarea>
-        </div>
-      </template>
-      <div class="modal-overlay" id="modalOverlay">
-        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-          <div id="modalTitle" style="font-weight:700; margin-bottom:6px;">Configure Button</div>
-          <label for="modalName">Name</label>
-          <input type="text" id="modalName" placeholder="Button name (text shown)" />
-          <label for="modalLink">Link (URL)</label>
-          <input type="text" id="modalLink" placeholder="https://example.com" />
-          <div style="margin-top:8px; font-size:0.85rem; color:#7fffa5;">Leave link empty to keep the button non-navigating.</div>
-          <div class="actions" style="margin-top:12px;">
-            <button id="modalCancel">Cancel</button>
-            <button id="modalSave">Save</button>
-          </div>
-        </div>
-      </div>
-      <div class="save-modal-overlay" id="saveModalOverlay" role="dialog" aria-modal="true" aria-labelledby="saveModalTitle" aria-hidden="true">
-        <div class="save-modal" role="document" aria-label="Save Blog Dialog">
-          <div class="header">
-            <h2 id="saveModalTitle">Blog Details</h2>
-            <div style="display:flex; gap:8px; align-items:center;">
-              <button class="close-save" id="saveModalCancel" title="Close">✕</button>
-            </div>
-          </div>
-          <div class="save-stages" id="saveStages">
-            <div class="save-stage active" data-stage="1" id="stage1">
-              <div class="field-row">
-                <label for="saveTitle">Title</label>
-                <input id="saveTitle" type="text" placeholder="Enter blog title" />
-              </div>
-              <div class="field-row">
-                <label for="saveKeywords">Keywords (comma separated)</label>
-                <input id="saveKeywords" type="text" placeholder="keyword1, keyword2, ..." />
-              </div>
-              <div class="field-row">
-                <label for="saveDescription">Description</label>
-                <textarea id="saveDescription" placeholder="Short description of the blog"></textarea>
-              </div>
-              <div class="field-row">
-                <label for="saveRobots">Robots</label>
-                <input id="saveRobots" type="text" placeholder="e.g. index, follow" />
-              </div>
-              <div class="center-actions" style="margin-top:10px;">
-                <button class="btn" id="stage1Next">Next</button>
-              </div>
-            </div>
-            <div class="save-stage hidden" data-stage="2" id="stage2" aria-hidden="true">
-              <div>
-                <!-- <h3 style="margin:0 0 6px 0;">Authorization Required</h3> -->
-                <div class="author-card" aria-hidden="false">
-                  <div class="author-photo" aria-hidden="true">
-                    <img src="Jibran.png" alt="Jibranzada" style="display:block;" />
-                    <!-- <span style="font-weight:800; color:#3CFF15;">MJ</span> -->
-                  </div>
-                  <div class="author-meta">
-                    <div class="name">Muhammad Jibran Zada</div>
-                    <div class="bio">Author.</div>
-                  </div>
-                </div>
-              </div>
-              <div class="field-row" style="margin-top:12px;">
-                <label for="authPassword">Password</label>
-                <input id="authPassword" type="password" placeholder="Enter your password" aria-describedby="passwordHelp" />
-                <div id="passwordHelp" class="security-indicator">
-                  <i class="fas fa-shield-alt security-icon"></i>
-                  <span>Password is securely hashed with SHA-256</span>
-                </div>
-                <div class="error" id="passwordError" style="display:none;">
-                  <i class="fas fa-exclamation-triangle"></i> Incorrect password. Please try again.
-                </div>
-              </div>
-              <div class="center-actions" style="margin-top:8px;">
-                <button class="btn secondary" id="stage2Back">Back</button>
-                <button class="btn" id="stage2Next">Verify & Continue</button>
-              </div>
-            </div>
-            <div class="save-stage hidden" data-stage="3" id="stage3" aria-hidden="true">
-              <div>
-                <!-- <h3 style="margin:0 0 6px 0;">Export Blog</h3> -->
-                <p style="margin: 0 0 10px 0; color: rgba(127,255,165,0.9);">Your blog is ready! Click Download to save it as an HTML file</p>
-                <div class="export-progress" id="exportProgress">
-                  <div class="spinner"></div>
-                  <span>Generating HTML file...</span>
-                </div>
-              </div>
-              <div class="center-actions" style="margin-top:auto;">
-                <button class="btn secondary" id="stage3Back">Back</button>
-                <button class="btn" id="stage3Download">Download</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Project Section (pre-coded externally, don’t rename) -->
-    <section id="blogsection" class="sectionpage"></section>
-    <script src="admin.js"></script>
-  </body>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html><html lang="en"> <head> <meta charset="UTF-8"> <title>Admin</title> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet"> <link rel="stylesheet" type="text/css" href="admin.css"> </head> <body> <section id="loginsectionadmin" class="activeadmin"> <div class="loginboxadmin"> <div class="loginheadingadmin">Admin</div> <input type="text" id="usernameadmin" class="logininputadmin" placeholder="Username"> <input type="password" id="passwordadmin" class="logininputadmin" placeholder="Password"> <button class="loginbtnadmin" onclick="loginadmin()">Login</button> </div> <div id="popupadmin" class="popupadmin"></div> </section> <section id="dashboardsectionadmin"> <div class="dashboardheaderadmin"> <button class="logoutbtnadmin" onclick="logoutadmin()"> <i class="fa-solid fa-right-from-bracket"></i> Logout </button> </div> <div class="dashboardcontentadmin"> <div class="dashboardboxadmin" onclick="openBlogadmin()"> <i class="fa-solid fa-pen"></i> <div class="dashdiv">Blog</div> </div> <div class="dashboardboxadmin" onclick="openProjectadmin()"> <i class="fa-solid fa-code"></i> <div class="dashdiv">Project</div> </div> </div> </section> <section id="blogsection" class="sectionpage"> <button class="back-btn"> <i class="fas fa-arrow-left"></i> </button> <button class="save-btn" id="save-btn">Save</button> <button class="plus-btn" id="plus-btn"> <i class="fa-solid fa-plus"></i> </button> <div class="popupblog" id="popupblog"> <button data-type="title">Title</button> <button data-type="heading">Heading</button> <button data-type="paragraph">Paragraph</button> <button data-type="heading2">Heading 2</button> <button data-type="heading3">Heading 3</button> <button data-type="link">Link</button> <button data-type="audio">Audio</button> <button data-type="image">Image</button> <button data-type="video">Video</button> <button data-type="customButton">Button</button> <button data-type="listblock">List</button> <button data-type="italic">Italic</button> </div> <template id="template-title"> <div class="content-block"> <button class="delete-btn">X</button> <textarea placeholder="Enter Title" class="title"></textarea> </div> </template> <template id="template-heading"> <div class="content-block"> <button class="delete-btn">X</button> <textarea placeholder="Enter Heading" class="heading"></textarea> </div> </template> <template id="template-paragraph"> <div class="content-block"> <button class="delete-btn">X</button> <textarea placeholder="Enter Paragraph" class="paragraph"></textarea> </div> </template> <template id="template-heading2"> <div class="content-block"> <button class="delete-btn">X</button> <textarea placeholder="Enter Heading 2" class="heading-two"></textarea> </div> </template> <template id="template-heading3"> <div class="content-block"> <button class="delete-btn">X</button> <textarea placeholder="Enter Heading 3" class="heading-three"></textarea> </div> </template> <template id="template-link"> <div class="content-block"> <button class="delete-btn">X</button> <textarea placeholder="Enter Link" class="link"></textarea> </div> </template> <template id="template-audio"> <div class="content-block"> <button class="delete-btn">X</button> <div class="media-container"> <button class="upload-audio">Upload</button> <audio controls></audio> </div> </div> </template> <template id="template-image"> <div class="content-block"> <button class="delete-btn">X</button> <div class="media-container"> <button class="link-image">Link</button> </div> </div> </template> <template id="template-video"> <div class="content-block"> <button class="delete-btn">X</button> <div class="media-container"> <button class="link-video">Link</button> </div> </div> </template> <template id="template-customButton"> <div class="content-block"> <button class="delete-btn">X</button> <div style="display:flex; align-items:center; gap:10px;"> <button class="dynamic-config-btn">+Add</button> </div> </div> </template> <template id="template-listblock"> <div class="content-block"> <button class="delete-btn">X</button> <div class="list-controls"> <button class="count-list-btn">Counting list</button> <button class="bullet-list-btn">Bullet point list</button> </div> <div class="list-area"></div> </div> </template> <template id="template-italic"> <div class="content-block"> <button class="delete-btn">X</button> <textarea class="italic-textarea" placeholder="Enter italic text"></textarea> </div> </template> <div class="modal-overlay" id="modalOverlay"> <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"> <div id="modalTitle" style="font-weight:700; margin-bottom:6px;">Configure Button</div> <label for="modalName">Name</label> <input type="text" id="modalName" placeholder="Button name (text shown)" /> <label for="modalLink">Link (URL)</label> <input type="text" id="modalLink" placeholder="https://example.com" /> <div style="margin-top:8px; font-size:0.85rem; color:#7fffa5;">Leave link empty to keep the button non-navigating.</div> <div class="actions" style="margin-top:12px;"> <button id="modalCancel">Cancel</button> <button id="modalSave">Save</button> </div> </div> </div> <div class="save-modal-overlay" id="saveModalOverlay" role="dialog" aria-modal="true" aria-labelledby="saveModalTitle" aria-hidden="true"> <div class="save-modal" role="document" aria-label="Save Blog Dialog"> <div class="header"> <h2 id="saveModalTitle">Blog Details</h2> <div style="display:flex; gap:8px; align-items:center;"> <button class="close-save" id="saveModalCancel" title="Close">✕</button> </div> </div> <div class="save-stages" id="saveStages"> <div class="save-stage active" data-stage="1" id="stage1"> <div class="field-row"> <label for="saveTitle">Title</label> <input id="saveTitle" type="text" placeholder="Enter blog title" /> </div> <div class="field-row"> <label for="saveKeywords">Keywords (comma separated)</label> <input id="saveKeywords" type="text" placeholder="keyword1, keyword2, ..." /> </div> <div class="field-row"> <label for="saveDescription">Description</label> <textarea id="saveDescription" placeholder="Short description of the blog"></textarea> </div> <div class="field-row"> <label for="saveRobots">Robots</label> <input id="saveRobots" type="text" placeholder="e.g. index, follow" /> </div> <div class="center-actions" style="margin-top:10px;"> <button class="btn" id="stage1Next">Next</button> </div> </div> <div class="save-stage hidden" data-stage="2" id="stage2" aria-hidden="true"> <div> <div class="author-card" aria-hidden="false"> <div class="author-photo" aria-hidden="true"> <img src="Jibran.png" alt="Jibranzada" style="display:block;" /> </div> <div class="author-meta"> <div class="name">Muhammad Jibran Zada</div> <div class="bio">Author.</div> </div> </div> </div> <div class="field-row" style="margin-top:12px;"> <label for="authPassword">Password</label> <input id="authPassword" type="password" placeholder="Enter your password" aria-describedby="passwordHelp" /> <div id="passwordHelp" class="security-indicator"> <i class="fas fa-shield-alt security-icon"></i> <span>Password is securely hashed with SHA-256</span> </div> <div class="error" id="passwordError" style="display:none;"> <i class="fas fa-exclamation-triangle"></i> Incorrect password. Please try again. </div> </div> <div class="center-actions" style="margin-top:8px;"> <button class="btn secondary" id="stage2Back">Back</button> <button class="btn" id="stage2Next">Verify & Continue</button> </div> </div> <div class="save-stage hidden" data-stage="3" id="stage3" aria-hidden="true"> <div> <p style="margin: 0 0 10px 0; color: rgba(127,255,165,0.9);">Your blog is ready! Click Download to save it as an HTML file</p> <div class="export-progress" id="exportProgress"> <div class="spinner"></div> <span>Generating HTML file...</span> </div> </div> <div class="center-actions" style="margin-top:auto;"> <button class="btn secondary" id="stage3Back">Back</button> <button class="btn" id="stage3Download">Download</button> </div> </div> </div> </div> </div> </section> <section id="blogsection" class="sectionpage"></section> <script src="admin.js"></script> </body></html>

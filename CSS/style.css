@@ -1,492 +1,1001 @@
- :root {
-      --bg: #000;
-      --green: #00ff00;
-    }
-
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Quicksand'; }
-    body { background:var(--bg); color:var(--green); overflow:hidden; }
-
-    /* ==== Background Grid ==== */
-    body::before {
-      content: "";
-      position: fixed; inset:0;
-      background: 
-        linear-gradient(0deg, rgba(0,255,0,0.10) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,0,0.10) 1px, transparent 1px);
-      background-size: 60px 60px;
-      animation: gridMove 40s linear infinite;
-      z-index:0;
-    }
-    @keyframes gridMove { from{background-position:0 0} to{background-position:60px 60px} }
-
-    /* ==== Floating Particles ==== */
-    .particles { position:fixed; inset:0; pointer-events:none; z-index:1; }
-    .particle { position:absolute; border-radius:50%; background:var(--green); opacity:0.5; animation:floatUp linear infinite; }
-    @keyframes floatUp { from{transform:translateY(100vh); opacity:0} 50%{opacity:1} to{transform:translateY(-10vh); opacity:0} }
-
-    /* ==== Hero Section ==== */
-    .hero { position:relative; height:100vh; display:flex; justify-content:center; align-items:flex-end; text-align:center; z-index:2; }
-
-    /* ==== Name ==== */
-    .hero h1 { position:absolute; top:5%; left:50%; transform:translateX(-50%); font-size:clamp(2.5rem,6vw,5rem); font-weight:900; text-transform:uppercase; color:var(--green); letter-spacing:5px; user-select:none; white-space:nowrap; }
-
-    /* ==== Image ==== */
-    .hero img { position:relative; z-index:2; height:85vh; bottom:-3%; background:transparent; }
-
-    /* ==== Gadgets ==== */
-    .gadget {
-      position:absolute;
-      background:rgba(0,0,0,0.7);
-      border:3px solid var(--green);
-      border-radius:14px;
-      padding:18px 24px;
-      width:290px;
-      font-size:1.2rem;
-      font-weight:700;
-      color:var(--green);
-      box-shadow:0 0 25px rgba(0,255,0,0.3);
-      backdrop-filter:blur(8px);
-      transition:all 0.3s ease;
-      z-index:999;
-      word-wrap: break-word;
-    }
-
-    .gadget:hover { transform:translateY(-8px) scale(1.04); box-shadow:0 0 40px var(--green); }
-.about p{
-  width: 100%;
-  /*margin-right: 0px;*/
-}
-    .about { left:6%; top:40%; animation:float1 4s ease-in-out infinite; padding: 10px 10px; width: 330px;}
-    .cta { right:8%; top:30%; text-align:center; animation:float2 5s ease-in-out infinite; }
-    .extra { left:60%; bottom:8%; transform:translateX(-50%); font-size:1rem; width: 320px; opacity:1; animation:float3 3s ease-in-out infinite; }
-
-    @keyframes float1 {0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
-    @keyframes float2 {0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
-    @keyframes float3 {0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-
-    /* ==== Button ==== */
-    .gadget button {
-      margin-top:12px; padding:10px 26px;
-      background:var(--bg); color:var(--green); font-weight:bold;
-      border:3px solid var(--green); border-radius:30px;
-      cursor:pointer; font-size:1rem; letter-spacing:1px;
-      box-shadow:0 0 15px rgba(0,255,0,0.45); transition:all 0.3s ease-in-out;
-      position:relative; overflow:hidden;
-    }
-    .gadget button::after {
-      content:""; position:absolute; top:0; left:-100%; width:100%; height:100%;
-      background:var(--green); transform:skewX(-30deg); transition:left 0.5s;
-    }
-    .gadget button:hover::after { left:120%; }
-    .gadget button:hover { transform:scale(1.07); }
-
-    /* ==== Typing Cursor ==== */
-    .typing-cursor {
-      display:inline-block;
-      width:0.8ch; height:1em;
-      background:var(--green);
-      vertical-align:bottom;
-      margin-left:2px;
-      animation:blink 2s steps(1) infinite; /* slower blink */
-    }
-    @keyframes blink {
-      0%,50%,100%{background:var(--green);}
-      25%,75%{background:transparent;}
-    }
-
-    /* Left-align typing container */
-    #typing-container { display:inline-block; text-align:left; font-weight: 600; width: 100%;  font-size: 0.9rem; padding-top: 10px;}
-
-.strong{
-  font-size: 1.3rem;
-}
-  /* ==== Heading Animation ==== */
-.hero h1 {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  color: var(--green);
-  letter-spacing: 5px;
-  user-select: none;
-  white-space: nowrap;
-
-  opacity: 0;
-  animation: headingReveal 1.5s ease forwards;
-}
-
-@keyframes headingReveal {
-  0% {
-    opacity: 0;
-    letter-spacing: 25px;
-    filter: blur(8px);
-  }
-  50% {
-    opacity: 0.7;
-    letter-spacing: 8px;
-    filter: blur(3px);
-  }
-  100% {
-    opacity: 1;
-    letter-spacing: 5px;
-    filter: blur(0px);
-  }
-}
-
-/* ==== Image Fade In ==== */
-.hero img {
-  position: relative;
-  z-index: 2;
-  height: 85vh;
-  bottom: -3%;
-  background: transparent;
-
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 2s ease forwards;
-  animation-delay: 0.8s; /* starts shortly after heading */
-}
-
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ==== Gadget Pop-In ==== */
-.gadget {
-  position: absolute;
-  background: rgba(0,0,0,0.7);
-  border: 3px solid var(--green);
-  border: none;
-  border-radius: 14px;
-  padding: 18px 24px;
-  width: 290px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--green);
-  box-shadow: 0 0 25px rgba(0,255,0,1);
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-  z-index: 999;
-  word-wrap: break-word;
-
-  opacity: 0;
-  transform: scale(0.8) translateY(20px);
-  animation: popIn 0.9s cubic-bezier(0.25, 1.3, 0.5, 1) forwards;
-}
-
-/* stagger each gadget */
-.about { left:6%; top:40%; animation: popIn 0.9s cubic-bezier(0.25, 1.3, 0.5, 1) 1.4s forwards, float1 4s ease-in-out infinite; padding: 10px 14px; width: 325px; }
-.cta   { right:8%; top:30%; text-align:center;   animation: popIn 0.9s cubic-bezier(0.25, 1.3, 0.5, 1) 1.7s forwards, float2 5s ease-in-out infinite; }
-.extra { left:60%; bottom:8%; transform:translateX(-50%); font-size:0.9rem; animation: popIn 0.9s cubic-bezier(0.25, 1.3, 0.5, 1) 2s forwards, float3 3s ease-in-out infinite; }
-
-@keyframes popIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8) translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-*{
-  margin: 0;
-  padding: 0;
-  font-family: Quicksand;
-  box-sizing: border-box;
-  text-decoration: none;
-  border: none;
-  outline: none;
-}
-
-:root{
-  --bg-color:black;
-  --second-bg-color:#1f242d;
-  --main-color: #3CFF15 ;
-  --white-color:#fff;
-  --disabled-color:#fff3;
-}
-
-html {
-  /*font-size: 75.5%;*/
-}
-
-body {
-color: var(--main-color);
-/*background: var(--bg-color);*/
-}
 
 
-header{
-  background: var(--bg-color);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width:100%;
-  padding: 1.5rem 4%;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  background: var(--bg-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
-}
-
-.logo{
-  font-size: 2rem;
-  color: var(--main-color);
-  font-style: bold;
-  font-weight: 700;
-}
-
-nav a{
-  font-size: 1.2rem;
-  color: var(--main-color);
-  font-weight: 700;
-  margin-left: 0.5rem;
-  transition: 0.3s;
-  border: 3px solid transparent;
-  border-radius: 30px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 9px;
-  padding-right: 9px;
-}
-
-nav a:hover{
-  border: 3px solid var(--main-color);
-  border-radius: 30px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 9px;
-  padding-right: 9px;
-}
-
-nav .home{
-   border: 3px solid var(--main-color);
-  border-radius: 30px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 9px;
-  padding-right: 9px;
-}
-
-#menu-icon {
-  font-size: 4rem;
-  display: none;
-}
 
 
-/*===========================Navbar Animation =========================*/
-
-/* Initial hidden state */
-.nav-hidden {
-  opacity: 0;
-  transform: translateY(-15px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-/* Reveal animation */
-.nav-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===================== Mobile Responsive Styles ===================== */
-@media (max-width: 768px) {
-
-  /* Show menu icon */
-  #menu-icon {
-    display: block;
-    color: var(--main-color);
-    cursor: pointer;
-    z-index: 101;
-  }
-
-  /* Hide original navbar on mobile */
-  header nav {
-    display: none;
-  }
-
-  /* Fullscreen menu overlay */
-  .mobile-nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* dark blur background */
-    backdrop-filter: blur(10px);
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: right 0.4s ease;
-  }
-
-  .mobile-nav.active {
-    right: 0;
-  }
-
-.mobile-nav .mobone{
-  font-size: 2.4rem;
-  background: var(--main-color);
-    color: var(--bg-color);
-    margin: 1.5rem 0;
-    font-weight: 700;
-    transition: 0.3s;
-    padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 20px;
-}
-  .mobile-nav a {
-    font-size: 2.4rem;
-    color: var(--main-color);
-    margin: 1.5rem 0;
-    font-weight: 700;
-    transition: 0.3s;
-    padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 20px;
-  }
-
-  .mobile-nav a:hover, .mobone {
-    background: var(--main-color);
-  color: var(--bg-color);
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 20px;
-  box-shadow: 0, 0, 1rem var(--main-color);
-  }  
-}
 
 
-/*============================= hiding scroll bar line ===================*/
-/* Hide scrollbar for all elements */
-::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-}
-
-/* Optional: remove scrollbar track background */
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Optional: remove scrollbar thumb */
-::-webkit-scrollbar-thumb {
-  background: transparent;
-}
-
-/* Hide scrollbar for Firefox */
-body {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-}
-
-/* Optional: just in case, remove from html tag too */
-html {
-  scrollbar-width: none;
-}
 
 
-/* ===================== Mobile Responsive Styles ===================== */
-@media (max-width: 768px) {
 
-  /* Keep header fixed in mobile too */
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: var(--bg-color);
-    z-index: 1000;
-  }
 
-  /* Add top padding to body so content doesn't hide under fixed header */
-  body {
-    padding-top: 0px; /* matches header height */
-  }
 
-  /* Show menu icon */
-  #menu-icon {
-    display: block;
-    color: var(--main-color);
-    cursor: pointer;
-    z-index: 1010;
-  }
 
-  /* Hide original navbar on mobile */
-  header nav {
-    display: none;
-  }
 
-  /* Fullscreen menu overlay */
-  .mobile-nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: right 0.4s ease;
-  }
 
-  .mobile-nav.active {
-    right: 0;
-  }
 
-  .mobile-nav .mobone{
-    font-size: 2.4rem;
-    background: var(--main-color);
-    color: var(--bg-color);
-    margin: 1.5rem 0;
-    font-weight: 700;
-    transition: 0.3s;
-    padding: 5px 10px;
-    border-radius: 20px;
-  }
 
-  .mobile-nav a {
-    font-size: 2.4rem;
-    color: var(--main-color);
-    margin: 1.5rem 0;
-    font-weight: 700;
-    transition: 0.3s;
-    padding: 5px 10px;
-    border-radius: 20px;
-  }
 
-  .mobile-nav a:hover, .mobone {
-    background: var(--main-color);
-    color: var(--bg-color);
-    padding: 5px 10px;
-    border-radius: 20px;
-    box-shadow: 0 0 1rem var(--main-color);
-  }  
-}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ :root { --bg: #000; --green: #00ff00; } * { margin:0; padding:0; box-sizing:border-box; font-family:'Quicksand'; } body { background:var(--bg); color:var(--green); overflow:hidden; } body::before { content: ""; position: fixed; inset:0; background: linear-gradient(0deg, rgba(0,255,0,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,0,0.10) 1px, transparent 1px); background-size: 60px 60px; animation: gridMove 40s linear infinite; z-index:0; } @keyframes gridMove { from{background-position:0 0} to{background-position:60px 60px} } .particles { position:fixed; inset:0; pointer-events:none; z-index:1; } .particle { position:absolute; border-radius:50%; background:var(--green); opacity:0.5; animation:floatUp linear infinite; } @keyframes floatUp { from{transform:translateY(100vh); opacity:0} 50%{opacity:1} to{transform:translateY(-10vh); opacity:0} } .hero { position:relative; height:100vh; display:flex; justify-content:center; align-items:flex-end; text-align:center; z-index:2; } .hero h1 { position:absolute; top:5%; left:50%; transform:translateX(-50%); font-size:clamp(2.5rem,6vw,5rem); font-weight:900; text-transform:uppercase; color:var(--green); letter-spacing:5px; user-select:none; white-space:nowrap; } .hero img { position:relative; z-index:2; height:85vh; bottom:-3%; background:transparent; } .gadget { position:absolute; background:rgba(0,0,0,0.7); border:3px solid var(--green); border-radius:14px; padding:18px 24px; width:290px; font-size:1.2rem; font-weight:700; color:var(--green); box-shadow:0 0 25px rgba(0,255,0,0.3); backdrop-filter:blur(8px); transition:all 0.3s ease; z-index:999; word-wrap: break-word; } .gadget:hover { transform:translateY(-8px) scale(1.04); box-shadow:0 0 40px var(--green); }.about p{ width: 100%; } .about { left:6%; top:40%; animation:float1 4s ease-in-out infinite; padding: 10px 10px; width: 330px;} .cta { right:8%; top:30%; text-align:center; animation:float2 5s ease-in-out infinite; } .extra { left:60%; bottom:8%; transform:translateX(-50%); font-size:1rem; width: 320px; opacity:1; animation:float3 3s ease-in-out infinite; } @keyframes float1 {0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}} @keyframes float2 {0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}} @keyframes float3 {0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}} .gadget button { margin-top:12px; padding:10px 26px; background:var(--bg); color:var(--green); font-weight:bold; border:3px solid var(--green); border-radius:30px; cursor:pointer; font-size:1rem; letter-spacing:1px; box-shadow:0 0 15px rgba(0,255,0,0.45); transition:all 0.3s ease-in-out; position:relative; overflow:hidden; } .gadget button::after { content:""; position:absolute; top:0; left:-100%; width:100%; height:100%; background:var(--green); transform:skewX(-30deg); transition:left 0.5s; } .gadget button:hover::after { left:120%; } .gadget button:hover { transform:scale(1.07); } .typing-cursor { display:inline-block; width:0.8ch; height:1em; background:var(--green); vertical-align:bottom; margin-left:2px; animation:blink 2s steps(1) infinite; } @keyframes blink { 0%,50%,100%{background:var(--green);} 25%,75%{background:transparent;} } #typing-container { display:inline-block; text-align:left; font-weight: 600; width: 100%; font-size: 0.9rem; padding-top: 10px;}.strong{ font-size: 1.3rem;} .hero h1 { position: absolute; top: 5%; left: 50%; transform: translateX(-50%); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; text-transform: uppercase; color: var(--green); letter-spacing: 5px; user-select: none; white-space: nowrap; opacity: 0; animation: headingReveal 1.5s ease forwards;}@keyframes headingReveal { 0% { opacity: 0; letter-spacing: 25px; filter: blur(8px); } 50% { opacity: 0.7; letter-spacing: 8px; filter: blur(3px); } 100% { opacity: 1; letter-spacing: 5px; filter: blur(0px); }}.hero img { position: relative; z-index: 2; height: 85vh; bottom: -3%; background: transparent; opacity: 0; transform: translateY(30px); animation: fadeUp 2s ease forwards; animation-delay: 0.8s; }@keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); }}.gadget { position: absolute; background: rgba(0,0,0,0.7); border: 3px solid var(--green); border: none; border-radius: 14px; padding: 18px 24px; width: 290px; font-size: 1rem; font-weight: 600; color: var(--green); box-shadow: 0 0 25px rgba(0,255,0,1); backdrop-filter: blur(8px); transition: all 0.3s ease; z-index: 999; word-wrap: break-word; opacity: 0; transform: scale(0.8) translateY(20px); animation: popIn 0.9s cubic-bezier(0.25, 1.3, 0.5, 1) forwards;}.about { left:6%; top:40%; animation: popIn 0.9s cubic-bezier(0.25, 1.3, 0.5, 1) 1.4s forwards, float1 4s ease-in-out infinite; padding: 10px 14px; width: 325px; }.cta { right:8%; top:30%; text-align:center; animation: popIn 0.9s cubic-bezier(0.25, 1.3, 0.5, 1) 1.7s forwards, float2 5s ease-in-out infinite; }.extra { left:60%; bottom:8%; transform:translateX(-50%); font-size:0.9rem; animation: popIn 0.9s cubic-bezier(0.25, 1.3, 0.5, 1) 2s forwards, float3 3s ease-in-out infinite; }@keyframes popIn { 0% { opacity: 0; transform: scale(0.8) translateY(20px); } 100% { opacity: 1; transform: scale(1) translateY(0); }}*{ margin: 0; padding: 0; font-family: Quicksand; box-sizing: border-box; text-decoration: none; border: none; outline: none;}:root{ --bg-color:black; --second-bg-color:#1f242d; --main-color: #3CFF15 ; --white-color:#fff; --disabled-color:#fff3;}html { }body {color: var(--main-color);}header{ background: var(--bg-color); position: fixed; top: 0; left: 0; width:100%; padding: 1.5rem 4%; padding-top: 15px; padding-bottom: 10px; background: var(--bg-color); display: flex; justify-content: space-between; align-items: center; z-index: 100;}.logo{ font-size: 2rem; color: var(--main-color); font-style: bold; font-weight: 700;}nav a{ font-size: 1.2rem; color: var(--main-color); font-weight: 700; margin-left: 0.5rem; transition: 0.3s; border: 3px solid transparent; border-radius: 30px; padding-top: 5px; padding-bottom: 5px; padding-left: 9px; padding-right: 9px;}nav a:hover{ border: 3px solid var(--main-color); border-radius: 30px; padding-top: 4px; padding-bottom: 4px; padding-left: 9px; padding-right: 9px;}nav .home{ border: 3px solid var(--main-color); border-radius: 30px; padding-top: 4px; padding-bottom: 4px; padding-left: 9px; padding-right: 9px;}#menu-icon { font-size: 4rem; display: none;}.nav-hidden { opacity: 0; transform: translateY(-15px); transition: opacity 0.2s ease, transform 0.2s ease;}.nav-reveal { opacity: 1; transform: translateY(0);}@media (max-width: 768px) { #menu-icon { display: block; color: var(--main-color); cursor: pointer; z-index: 101; } header nav { display: none; } .mobile-nav { position: fixed; top: 0; right: -100%; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); z-index: 100; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: right 0.4s ease; } .mobile-nav.active { right: 0; }.mobile-nav .mobone{ font-size: 2.4rem; background: var(--main-color); color: var(--bg-color); margin: 1.5rem 0; font-weight: 700; transition: 0.3s; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 20px;} .mobile-nav a { font-size: 2.4rem; color: var(--main-color); margin: 1.5rem 0; font-weight: 700; transition: 0.3s; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 20px; } .mobile-nav a:hover, .mobone { background: var(--main-color); color: var(--bg-color); padding-top: 5px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; border-radius: 20px; box-shadow: 0, 0, 1rem var(--main-color); } }::-webkit-scrollbar { width: 0px; height: 0px;}::-webkit-scrollbar-track { background: transparent;}::-webkit-scrollbar-thumb { background: transparent;}body { scrollbar-width: none; -ms-overflow-style: none; }html { scrollbar-width: none;}@media (max-width: 768px) { header { position: fixed; top: 0; left: 0; width: 100%; background: var(--bg-color); z-index: 1000; } body { padding-top: 0px; } #menu-icon { display: block; color: var(--main-color); cursor: pointer; z-index: 1010; } header nav { display: none; } .mobile-nav { position: fixed; top: 0; right: -100%; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(10px); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: right 0.4s ease; } .mobile-nav.active { right: 0; } .mobile-nav .mobone{ font-size: 2.4rem; background: var(--main-color); color: var(--bg-color); margin: 1.5rem 0; font-weight: 700; transition: 0.3s; padding: 5px 10px; border-radius: 20px; } .mobile-nav a { font-size: 2.4rem; color: var(--main-color); margin: 1.5rem 0; font-weight: 700; transition: 0.3s; padding: 5px 10px; border-radius: 20px; } .mobile-nav a:hover, .mobone { background: var(--main-color); color: var(--bg-color); padding: 5px 10px; border-radius: 20px; box-shadow: 0 0 1rem var(--main-color); } }
