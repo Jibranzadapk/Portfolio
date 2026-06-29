@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /Admin/
+
+Sitemap: https://www.jibranzada.com/sitemap.xml
